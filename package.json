@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "test:extract": "node tests/run-extract-tests.js",
+    "test:parse": "node tests/run-parse-tests.js",
+    "dev:sample": "node scripts/dev-sample.js",
     "lint": "echo \"(lint skipped)\""
   },
   "dependencies": {
