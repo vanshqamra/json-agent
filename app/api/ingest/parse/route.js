@@ -1,18 +1,19 @@
 import { NextResponse } from 'next/server';
 
 import { extractPagesFromArrayBuffer, segmentTextPages } from '@/lib/pdfSegmenter.js';
-import { labelSegments } from '@/lib/segmentLabeler.js';
-import { assembleGroupsFromSegments } from '@/lib/groupAssembler.js';
-import { postProcess } from '@/lib/postProcessor.js';
-import { ExtractionResultSchema } from '@/lib/validationSchemas.js';
 import { isOpenAIConfigured } from '@/lib/openaiClient.js';
-import { runChunkedExtraction } from '@/lib/chunkedExtraction.js';
+import {
+  buildAutomaticPageWindows,
+  filterPagesByWindow,
+  processPagesToFiles,
+} from '@/lib/blockProcessing.js';
+import { ensureDir, getDataDir } from '@/lib/io.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024; // 25 MB
-const EXTRACTION_VERSION = 'v1.3.0';
+const EXTRACTION_VERSION = 'v2.0.0';
 
 class ParseError extends Error {
   constructor(message, status = 400, details = undefined) {
@@ -82,19 +83,6 @@ async function loadPages(req) {
   return loadPagesFromFormData(req);
 }
 
-function buildPagesPreview(pages) {
-  return pages.slice(0, 5).map(page => ({
-    page: page.pageNumber,
-    textBlocks: page.textBlocks.slice(0, 3),
-    tables: page.tables.slice(0, 2).map(table => ({
-      id: table.id,
-      header: table.header,
-      rows: table.rows.slice(0, 3),
-    })),
-    images: page.images.slice(0, 2),
-  }));
-}
-
 function buildErrorResponse(error) {
   const status = error?.status && Number.isInteger(error.status) ? error.status : 500;
   const body = {
@@ -146,50 +134,50 @@ export async function POST(req) {
       throw new ParseError('Requested page range does not contain any pages.', 400);
     }
 
-    const openAiEnabled = isOpenAIConfigured();
-
-    let groups = [];
-    let notes = [];
-    let artifacts;
-
-    if (openAiEnabled) {
-      const extraction = await runChunkedExtraction({
-        pages,
-        source,
-        pageWindow,
-      });
-      groups = await postProcess(extraction.groups);
-      notes = extraction.notes;
-      artifacts = {
-        pdf_id: extraction.pdfId,
-        manifest_path: extraction.manifestPath,
-        merged_catalog_path: extraction.mergedCatalogPath,
-        config: extraction.config,
-      };
-      if (pageWindow) {
-        artifacts.page_window = pageWindow;
-      }
-    } else {
-      const labeledPages = await labelSegments(filteredPages);
-      const { groups: assembledGroups, notes: assembledNotes } = assembleGroupsFromSegments(filteredPages, labeledPages);
-      groups = await postProcess(assembledGroups);
-      notes = assembledNotes;
+    if (!isOpenAIConfigured()) {
+      throw new ParseError('OpenAI API key is not configured for ingestion.', 503);
     }
 
-    const result = {
+    const url = new URL(req.url);
+    const docId = url.searchParams.get('docId');
+    if (!docId) {
+      throw new ParseError('Missing required docId query parameter.', 400);
+    }
+
+    const dataDir = getDataDir(docId);
+    await ensureDir(dataDir);
+
+    let windows = pageWindow
+      ? [pageWindow]
+      : buildAutomaticPageWindows(source.pages || pages.length, 20);
+    if (!windows.length) {
+      const first = filteredPages[0]?.pageNumber ?? 1;
+      const last = filteredPages[filteredPages.length - 1]?.pageNumber ?? first;
+      windows = [{ start: first, end: last }];
+    }
+    const summaries = [];
+
+    for (const window of windows) {
+      const windowPages = filterPagesByWindow(pages, window);
+      if (!windowPages.length) continue;
+      const results = await processPagesToFiles({
+        docId,
+        pages: windowPages,
+        baseDir: dataDir,
+      });
+      summaries.push(...results);
+    }
+
+    const responseBody = {
+      docId,
       source,
       extraction_version: EXTRACTION_VERSION,
-      groups,
-      notes,
-      pages_preview: buildPagesPreview(filteredPages),
+      page_windows: windows,
+      parts: summaries,
+      storage_path: dataDir,
     };
 
-    if (artifacts) {
-      result.artifacts = artifacts;
-    }
-
-    const validated = ExtractionResultSchema.parse(result);
-    return NextResponse.json(validated, { status: 200 });
+    return NextResponse.json(responseBody, { status: 200 });
   } catch (error) {
     console.error('Ingestion parse failed:', error);
     return buildErrorResponse(error);
