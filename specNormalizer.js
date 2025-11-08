@@ -1,1 +1,1 @@
-export { normalizeGroup } from './lib/postProcessor.js';
+export { normalizeGroup, normalizeGroupSpecs } from './lib/specNormalizer.js';

@@ -20,14 +20,14 @@ function loadExpected(name) {
   return JSON.parse(fs.readFileSync(path.join(__dirname, 'expected', name), 'utf8'));
 }
 
-function runPipelineFromText(text) {
+async function runPipelineFromText(text) {
   const pagesText = text.split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean);
-  let tokenPages = tokenizeAndClassify(pagesText);
+  let tokenPages = await tokenizeAndClassify(pagesText);
   tokenPages = markNoise(tokenPages);
   let groups = detectGroups(tokenPages);
   groups = assembleVariants(groups);
-  groups = normalizeGroupSpecs(groups);
-  groups = postProcess(groups);
+  groups = await normalizeGroupSpecs(groups);
+  groups = await postProcess(groups);
   return { groups };
 }
 
@@ -43,10 +43,10 @@ function diff(a,b) {
   return JSON.stringify(a,null,2) + "\n--- vs ---\n" + JSON.stringify(b,null,2);
 }
 
-function main() {
+async function main() {
   const text = readFixture('catalog_sample_pages.txt');
   const expected = loadExpected('catalog_sample_pages.json');
-  const { groups } = runPipelineFromText(text);
+  const { groups } = await runPipelineFromText(text);
   const got = { groups: shallowGroupShape(groups) };
 
   const pass = JSON.stringify(got) === JSON.stringify(expected);
@@ -57,4 +57,4 @@ function main() {
   console.log('PASS 1 fixture');
 }
 
-main();
+await main();

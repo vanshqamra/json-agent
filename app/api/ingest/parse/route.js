@@ -1,175 +1,139 @@
 import pdfParse from 'pdf-parse/lib/pdf-parse.js';
+import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { tokenizeAndClassify } from '@/tokenize.js';
-import { markNoise } from '@/noiseFilter.js';
-import { detectGroups } from '@/groupDetector.js';
-import { assembleVariants } from '@/variantAssembler.js';
-import { normalizeGroup } from '@/specNormalizer.js';
-import { postProcess } from '@/postProcessor.js';
-import { maybeEscalateWithLLM } from '@/llmAssist.js';
-
-
-
-export async function POST(req) {
-
-  try {
-
-    // Expect a multipart with a field "file" (PDF)
-
-    const formData = await req.formData();
-
-    const file = formData.get('file');
-
-    if (!file) return Response.json({ error: 'No file uploaded' }, { status: 400 });
-
-
-
-    const arrayBuf = await file.arrayBuffer();
-
-    const pdfData = await pdfParse(Buffer.from(arrayBuf));
-
-
-
-    // Split into pages (pdf-parse gives full text; we split by form-feed if present, else by heuristic)
-
-    const rawPages = pdfData.text.includes('\f')
-
-      ? pdfData.text.split('\f')
-
-      : pdfData.text.split(/\n\s*\n(?=[A-Z0-9].+)/); // fallback heuristic
-
-
-
-    // --- Tokenize & classify (with LLM “low-confidence” escalation on ambiguous lines) ---
-
-    let tokenized = tokenizeAndClassify(rawPages);
-
-
-
-    // Inject low-confidence escalation you asked for:
-
-    for (const p of tokenized) {
-
-      const patchedBlocks = [];
-
-      for (const b of p.blocks) {
-
-        let block = { ...b };
-
-        const lowConfidence =
-
-          block.type === 'garbage' ||
-
-          block.type === 'text' ||
-
-          (block.type === 'spec_row' && !/\d/.test(block.text));
-
-
-
-        if (lowConfidence) {
-
-          const llmHint = await maybeEscalateWithLLM(
-
-            { text: block.text, metrics: block.metrics, type: block.type },
-
-            'Uncertain classification'
-
-          );
-
-          if (llmHint?.suggestedType) block.type = llmHint.suggestedType;
-
-          if (llmHint?.normalized) block.normalized = llmHint.normalized;
-
-        }
-
-        patchedBlocks.push(block);
-
-      }
-
-      p.blocks = patchedBlocks;
-
-    }
-
-
-
-    // Mark noise/sections
-
-    const withNoise = markNoise(tokenized);
-
-
-
-    // Detect groups
-
-    const rawGroups = detectGroups(withNoise);
-
-
-
-    // Assemble variants per group
-
-    const groups = [];
-
-    for (const rg of rawGroups) {
-
-      const variants = assembleVariants(rg, { windowSize: 3 });
-
-      const group = {
-
-        title: rg.title,
-
-        description: rg.lines?.map(l => l.text).join(' ') || '',
-
-        variants
-
-      };
-
-      groups.push(await normalizeGroup(group));
-
-    }
-
-
-
-    // Final post-processing (dedupe, price-per-unit, confidence, etc.)
-
-    const finalGroups = await postProcess(groups);
-
-
-
-    // Return compact output
-
-    return Response.json({
-
-      meta: {
-
-        pages: rawPages.length,
-
-        variants_total: finalGroups.reduce((s, g) => s + (g.variants?.length || 0), 0)
-
-      },
-
-      pages_preview: withNoise.slice(0, 2), // first 2 pages for UI preview
-
-      groups: finalGroups
-
-    });
-
-  } catch (err) {
-
-    return Response.json({ error: String(err?.message || err) }, { status: 500 });
-
+import { tokenizeAndClassify } from '@/lib/tokenize.js';
+import { markNoise } from '@/lib/noiseFilter.js';
+import { detectGroups } from '@/lib/groupDetector.js';
+import { assembleVariants } from '@/lib/variantAssembler.js';
+import { normalizeGroup } from '@/lib/specNormalizer.js';
+import { postProcess } from '@/lib/postProcessor.js';
+import { maybeEscalateWithLLM } from '@/lib/llmAssist.js';
+
+async function readPagesFromRequest(req) {
+  const contentType = req.headers.get('content-type') || '';
+
+  if (contentType.includes('application/json')) {
+    const body = await req.json();
+    const pages = Array.isArray(body?.pages) ? body.pages : [];
+    if (!pages.length) throw new Error('JSON payload must include non-empty "pages" array');
+    return pages.map(p => String(p || ''));
   }
 
+  const formData = await req.formData();
+  const file = formData.get('file');
+  if (!file || typeof file.arrayBuffer !== 'function') {
+    throw new Error('No file uploaded');
+  }
+
+  const arrayBuf = await file.arrayBuffer();
+  const pdfData = await pdfParse(Buffer.from(arrayBuf));
+  const text = pdfData?.text || '';
+  if (!text.trim()) throw new Error('Uploaded PDF appears to be empty');
+
+  return text.includes('\f')
+    ? text.split('\f')
+    : text.split(/\n\s*\n(?=[A-Z0-9].+)/).filter(Boolean);
 }
 
+async function enhanceLowConfidenceBlocks(pages) {
+  for (const page of pages) {
+    const patchedBlocks = [];
+    for (const block of page.blocks) {
+      const candidate = { ...block };
+      const lowConfidence =
+        candidate.type === 'garbage' ||
+        candidate.type === 'text' ||
+        (candidate.type === 'spec_row' && !/\d/.test(candidate.text));
 
+      if (lowConfidence) {
+        const llmHint = await maybeEscalateWithLLM(
+          { text: candidate.text, metrics: candidate.metrics, type: candidate.type },
+          'uncertain_classification'
+        );
+        if (llmHint?.suggestedType) candidate.type = llmHint.suggestedType;
+        if (llmHint?.normalized) candidate.normalized = llmHint.normalized;
+      }
 
-// Simple health check for GET
+      patchedBlocks.push(candidate);
+    }
+    page.blocks = patchedBlocks;
+  }
+
+  return pages;
+}
+
+export async function POST(req) {
+  try {
+    const rawPages = await readPagesFromRequest(req);
+    if (!rawPages.length) {
+      return NextResponse.json(
+        { error: { code: 'NO_PAGES', message: 'No page content found in request' } },
+        { status: 400 }
+      );
+    }
+
+    const tokenized = await tokenizeAndClassify(rawPages);
+    const refined = await enhanceLowConfidenceBlocks([...tokenized]);
+    const withNoise = markNoise(refined);
+    const rawGroups = detectGroups(withNoise);
+
+    const groups = [];
+    for (const rawGroup of rawGroups) {
+      const assembledGroup = assembleVariants(rawGroup, { windowSize: 3 });
+      const blockSummary = (rawGroup.blocks || [])
+        .slice(0, 6)
+        .map(b => b.text)
+        .join(' ');
+      const normalizedGroup = await normalizeGroup({
+        ...assembledGroup,
+        title: rawGroup.title,
+        pageStart: rawGroup.pageStart,
+        description:
+          rawGroup.lines?.map(l => l.text).join(' ') ||
+          rawGroup.description ||
+          blockSummary
+      });
+      groups.push(normalizedGroup);
+    }
+
+    const processedGroups = await postProcess(groups);
+    const finalGroups = processedGroups.filter(group => (group.variants?.length || 0) > 0);
+
+    const body = {
+      meta: {
+        pages: rawPages.length,
+        variants_total: finalGroups.reduce((sum, group) => sum + (group.variants?.length || 0), 0),
+        groups_total: finalGroups.length
+      },
+      pages_preview: withNoise.slice(0, 2),
+      groups: finalGroups
+    };
+
+    return NextResponse.json(body, { status: 200 });
+  } catch (error) {
+    const message = error?.message || 'Unknown error';
+    const status = /no file uploaded|empty/i.test(message) ? 400 : 500;
+    return NextResponse.json(
+      {
+        error: {
+          code: status === 400 ? 'INVALID_REQUEST' : 'INGEST_FAILED',
+          message,
+          details: isDevelopment() ? { stack: error?.stack } : undefined
+        }
+      },
+      { status }
+    );
+  }
+}
+
+function isDevelopment() {
+  return process.env.NODE_ENV !== 'production';
+}
 
 export async function GET() {
-
-  return new Response('ok', { status: 200 });
-
+  return NextResponse.json({ ok: true });
 }
 
