@@ -5,6 +5,8 @@ import { labelSegments } from '@/lib/segmentLabeler.js';
 import { assembleGroupsFromSegments } from '@/lib/groupAssembler.js';
 import { postProcess } from '@/lib/postProcessor.js';
 import { ExtractionResultSchema } from '@/lib/validationSchemas.js';
+import { isOpenAIConfigured } from '@/lib/openaiClient.js';
+import { runChunkedExtraction } from '@/lib/chunkedExtraction.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -109,21 +111,82 @@ function buildErrorResponse(error) {
   return NextResponse.json(body, { status });
 }
 
+function parsePageWindow(req, totalPages = 0) {
+  try {
+    const url = new URL(req.url);
+    const startParam = url.searchParams.get('startPage') ?? url.searchParams.get('start_page');
+    const endParam = url.searchParams.get('endPage') ?? url.searchParams.get('end_page');
+    if (!startParam && !endParam) return null;
+    const startValue = startParam ? Number.parseInt(startParam, 10) : 1;
+    const endValue = endParam ? Number.parseInt(endParam, 10) : totalPages;
+    if (!Number.isFinite(startValue) || !Number.isFinite(endValue)) {
+      throw new ParseError('Invalid page range parameters provided.', 400);
+    }
+    const start = Math.max(1, Math.min(startValue, totalPages || startValue));
+    const end = Math.max(start, Math.min(endValue, totalPages || endValue));
+    return { start, end };
+  } catch (err) {
+    if (err instanceof ParseError) throw err;
+    return null;
+  }
+}
+
+function applyPageWindow(pages, pageWindow) {
+  if (!pageWindow) return pages;
+  return pages.filter(page => page.pageNumber >= pageWindow.start && page.pageNumber <= pageWindow.end);
+}
+
 export async function POST(req) {
   try {
     const { pages, source } = await loadPages(req);
 
-    const labeledPages = await labelSegments(pages);
-    const { groups: assembledGroups, notes } = assembleGroupsFromSegments(pages, labeledPages);
-    const processedGroups = await postProcess(assembledGroups);
+    const pageWindow = parsePageWindow(req, source.pages);
+    const filteredPages = applyPageWindow(pages, pageWindow);
+    if (!filteredPages.length) {
+      throw new ParseError('Requested page range does not contain any pages.', 400);
+    }
+
+    const openAiEnabled = isOpenAIConfigured();
+
+    let groups = [];
+    let notes = [];
+    let artifacts;
+
+    if (openAiEnabled) {
+      const extraction = await runChunkedExtraction({
+        pages,
+        source,
+        pageWindow,
+      });
+      groups = await postProcess(extraction.groups);
+      notes = extraction.notes;
+      artifacts = {
+        pdf_id: extraction.pdfId,
+        manifest_path: extraction.manifestPath,
+        merged_catalog_path: extraction.mergedCatalogPath,
+        config: extraction.config,
+      };
+      if (pageWindow) {
+        artifacts.page_window = pageWindow;
+      }
+    } else {
+      const labeledPages = await labelSegments(filteredPages);
+      const { groups: assembledGroups, notes: assembledNotes } = assembleGroupsFromSegments(filteredPages, labeledPages);
+      groups = await postProcess(assembledGroups);
+      notes = assembledNotes;
+    }
 
     const result = {
       source,
       extraction_version: EXTRACTION_VERSION,
-      groups: processedGroups,
+      groups,
       notes,
-      pages_preview: buildPagesPreview(pages),
+      pages_preview: buildPagesPreview(filteredPages),
     };
+
+    if (artifacts) {
+      result.artifacts = artifacts;
+    }
 
     const validated = ExtractionResultSchema.parse(result);
     return NextResponse.json(validated, { status: 200 });
