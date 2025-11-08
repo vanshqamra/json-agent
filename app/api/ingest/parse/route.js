@@ -2,13 +2,13 @@
 import pdfParse from 'pdf-parse';
 
 // Pipeline imports via @ alias (now resolved by jsconfig.json)
-import { tokenizeAndClassify } from '@/tokenize.js';
-import { markNoise } from '@/noiseFilter.js';
-import { detectGroups } from '@/groupDetector.js';
-import { assembleVariants } from '@/variantAssembler.js';
-import { normalizeGroup } from '@/specNormalizer.js';
-import { postProcess } from '@/postProcessor.js';
-import { maybeEscalateWithLLM } from '@/llmAssist.js';
+import { tokenizeAndClassify } from '@/tokenize';
+import { markNoise } from '@/noiseFilter';
+import { detectGroups } from '@/groupDetector';
+import { assembleVariants } from '@/variantAssembler';
+import { normalizeGroup } from '@/specNormalizer';
+import { postProcess } from '@/postProcessor';
+import { maybeEscalateWithLLM } from '@/llmAssist';
 
 // Ensure this route runs on the Edge-compatible Node runtime
 export const dynamic = 'force-dynamic';
