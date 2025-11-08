@@ -2,17 +2,18 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { createSupabaseBrowser } from '@/lib/supabase/browser'
 import { useSession } from './useSession'
 
 export function useRole() {
-  const { session } = useSession()
-  const [role, setRole] = useState<'admin'|'client'|null>(null)
+  const { session, supabase } = useSession()
+  const [role, setRole] = useState<'admin' | 'client' | null>(null)
 
   useEffect(() => {
     const run = async () => {
-      if (!session?.user) return setRole(null)
-      const supabase = createSupabaseBrowser()
+      if (!session?.user || !supabase) {
+        setRole(null)
+        return
+      }
       const { data, error } = await supabase
         .from('profiles')
         .select('role')
@@ -21,7 +22,7 @@ export function useRole() {
       if (!error && data) setRole((data.role as any) ?? 'client')
     }
     run()
-  }, [session?.user?.id])
+  }, [session?.user?.id, supabase])
 
   return role
 }

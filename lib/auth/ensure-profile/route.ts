@@ -3,7 +3,10 @@ import { NextResponse } from 'next/server'
 import { createSupabaseServer } from '@/lib/supabase/server'
 
 export async function POST() {
-  const supabase = createSupabaseServer()
+  const supabase = await createSupabaseServer()
+  if (!supabase) {
+    return NextResponse.json({ ok: false, reason: 'supabase_not_configured' }, { status: 503 })
+  }
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ ok: false, reason: 'not_signed_in' }, { status: 401 })
 
