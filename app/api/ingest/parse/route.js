@@ -1,139 +1,138 @@
-import pdfParse from 'pdf-parse/lib/pdf-parse.js';
 import { NextResponse } from 'next/server';
+
+import { extractPagesFromArrayBuffer, segmentTextPages } from '@/lib/pdfSegmenter.js';
+import { labelSegments } from '@/lib/segmentLabeler.js';
+import { assembleGroupsFromSegments } from '@/lib/groupAssembler.js';
+import { postProcess } from '@/lib/postProcessor.js';
+import { ExtractionResultSchema } from '@/lib/validationSchemas.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-import { tokenizeAndClassify } from '@/lib/tokenize.js';
-import { markNoise } from '@/lib/noiseFilter.js';
-import { detectGroups } from '@/lib/groupDetector.js';
-import { assembleVariants } from '@/lib/variantAssembler.js';
-import { normalizeGroup } from '@/lib/specNormalizer.js';
-import { postProcess } from '@/lib/postProcessor.js';
-import { maybeEscalateWithLLM } from '@/lib/llmAssist.js';
+const MAX_UPLOAD_BYTES = 25 * 1024 * 1024; // 25 MB
+const EXTRACTION_VERSION = 'v1.3.0';
 
-async function readPagesFromRequest(req) {
-  const contentType = req.headers.get('content-type') || '';
-
-  if (contentType.includes('application/json')) {
-    const body = await req.json();
-    const pages = Array.isArray(body?.pages) ? body.pages : [];
-    if (!pages.length) throw new Error('JSON payload must include non-empty "pages" array');
-    return pages.map(p => String(p || ''));
+class ParseError extends Error {
+  constructor(message, status = 400, details = undefined) {
+    super(message);
+    this.name = 'ParseError';
+    this.status = status;
+    this.details = details;
   }
+}
 
+async function loadPagesFromJson(req) {
+  const body = await req.json();
+  const pages = Array.isArray(body?.pages) ? body.pages.map(page => String(page || '')) : [];
+  if (!pages.length) {
+    throw new ParseError('JSON payload must include a non-empty "pages" array.', 400);
+  }
+  const segmented = segmentTextPages(pages);
+  if (!segmented.length) {
+    throw new ParseError('Unable to segment provided pages.', 422);
+  }
+  return {
+    pages: segmented,
+    source: {
+      filename: body?.filename || 'inline.json',
+      pages: segmented.length,
+    },
+  };
+}
+
+async function loadPagesFromFormData(req) {
   const formData = await req.formData();
   const file = formData.get('file');
   if (!file || typeof file.arrayBuffer !== 'function') {
-    throw new Error('No file uploaded');
+    throw new ParseError('No file uploaded', 400);
   }
-
-  const arrayBuf = await file.arrayBuffer();
-  const pdfData = await pdfParse(Buffer.from(arrayBuf));
-  const text = pdfData?.text || '';
-  if (!text.trim()) throw new Error('Uploaded PDF appears to be empty');
-
-  return text.includes('\f')
-    ? text.split('\f')
-    : text.split(/\n\s*\n(?=[A-Z0-9].+)/).filter(Boolean);
+  const filename = file.name || 'uploaded.pdf';
+  const arrayBuffer = await file.arrayBuffer();
+  if (!arrayBuffer || !arrayBuffer.byteLength) {
+    throw new ParseError('Uploaded PDF appears to be empty.', 400);
+  }
+  if (arrayBuffer.byteLength > MAX_UPLOAD_BYTES) {
+    throw new ParseError('Uploaded PDF is larger than 25MB. Please split the file and retry.', 413);
+  }
+  try {
+    const { pages } = await extractPagesFromArrayBuffer(arrayBuffer);
+    if (!pages.length) {
+      throw new ParseError('Unable to extract any pages from uploaded PDF.', 422);
+    }
+    return {
+      pages,
+      source: {
+        filename,
+        pages: pages.length,
+      },
+    };
+  } catch (err) {
+    if (err instanceof ParseError) throw err;
+    throw new ParseError(`PDF parsing failed: ${err?.message || 'unknown error'}`, 500);
+  }
 }
 
-async function enhanceLowConfidenceBlocks(pages) {
-  for (const page of pages) {
-    const patchedBlocks = [];
-    for (const block of page.blocks) {
-      const candidate = { ...block };
-      const lowConfidence =
-        candidate.type === 'garbage' ||
-        candidate.type === 'text' ||
-        (candidate.type === 'spec_row' && !/\d/.test(candidate.text));
-
-      if (lowConfidence) {
-        const llmHint = await maybeEscalateWithLLM(
-          { text: candidate.text, metrics: candidate.metrics, type: candidate.type },
-          'uncertain_classification'
-        );
-        if (llmHint?.suggestedType) candidate.type = llmHint.suggestedType;
-        if (llmHint?.normalized) candidate.normalized = llmHint.normalized;
-      }
-
-      patchedBlocks.push(candidate);
-    }
-    page.blocks = patchedBlocks;
+async function loadPages(req) {
+  const contentType = req.headers.get('content-type') || '';
+  if (contentType.includes('application/json')) {
+    return loadPagesFromJson(req);
   }
+  return loadPagesFromFormData(req);
+}
 
-  return pages;
+function buildPagesPreview(pages) {
+  return pages.slice(0, 5).map(page => ({
+    page: page.pageNumber,
+    textBlocks: page.textBlocks.slice(0, 3),
+    tables: page.tables.slice(0, 2).map(table => ({
+      id: table.id,
+      header: table.header,
+      rows: table.rows.slice(0, 3),
+    })),
+    images: page.images.slice(0, 2),
+  }));
+}
+
+function buildErrorResponse(error) {
+  const status = error?.status && Number.isInteger(error.status) ? error.status : 500;
+  const body = {
+    error: {
+      code: status >= 500 ? 'INGEST_FAILED' : 'INVALID_REQUEST',
+      message: error?.message || 'Unknown error',
+      status,
+      details: error?.details,
+    },
+  };
+  if (process.env.NODE_ENV !== 'production' && error?.stack) {
+    body.error.stack = error.stack;
+  }
+  return NextResponse.json(body, { status });
 }
 
 export async function POST(req) {
   try {
-    const rawPages = await readPagesFromRequest(req);
-    if (!rawPages.length) {
-      return NextResponse.json(
-        { error: { code: 'NO_PAGES', message: 'No page content found in request' } },
-        { status: 400 }
-      );
-    }
+    const { pages, source } = await loadPages(req);
 
-    const tokenized = await tokenizeAndClassify(rawPages);
-    const refined = await enhanceLowConfidenceBlocks([...tokenized]);
-    const withNoise = markNoise(refined);
-    const rawGroups = detectGroups(withNoise);
+    const labeledPages = await labelSegments(pages);
+    const { groups: assembledGroups, notes } = assembleGroupsFromSegments(pages, labeledPages);
+    const processedGroups = await postProcess(assembledGroups);
 
-    const groups = [];
-    for (const rawGroup of rawGroups) {
-      const assembledGroup = assembleVariants(rawGroup, { windowSize: 3 });
-      const blockSummary = (rawGroup.blocks || [])
-        .slice(0, 6)
-        .map(b => b.text)
-        .join(' ');
-      const normalizedGroup = await normalizeGroup({
-        ...assembledGroup,
-        title: rawGroup.title,
-        pageStart: rawGroup.pageStart,
-        description:
-          rawGroup.lines?.map(l => l.text).join(' ') ||
-          rawGroup.description ||
-          blockSummary
-      });
-      groups.push(normalizedGroup);
-    }
-
-    const processedGroups = await postProcess(groups);
-    const finalGroups = processedGroups.filter(group => (group.variants?.length || 0) > 0);
-
-    const body = {
-      meta: {
-        pages: rawPages.length,
-        variants_total: finalGroups.reduce((sum, group) => sum + (group.variants?.length || 0), 0),
-        groups_total: finalGroups.length
-      },
-      pages_preview: withNoise.slice(0, 2),
-      groups: finalGroups
+    const result = {
+      source,
+      extraction_version: EXTRACTION_VERSION,
+      groups: processedGroups,
+      notes,
+      pages_preview: buildPagesPreview(pages),
     };
 
-    return NextResponse.json(body, { status: 200 });
+    const validated = ExtractionResultSchema.parse(result);
+    return NextResponse.json(validated, { status: 200 });
   } catch (error) {
-    const message = error?.message || 'Unknown error';
-    const status = /no file uploaded|empty/i.test(message) ? 400 : 500;
-    return NextResponse.json(
-      {
-        error: {
-          code: status === 400 ? 'INVALID_REQUEST' : 'INGEST_FAILED',
-          message,
-          details: isDevelopment() ? { stack: error?.stack } : undefined
-        }
-      },
-      { status }
-    );
+    console.error('Ingestion parse failed:', error);
+    return buildErrorResponse(error);
   }
-}
-
-function isDevelopment() {
-  return process.env.NODE_ENV !== 'production';
 }
 
 export async function GET() {
   return NextResponse.json({ ok: true });
 }
-

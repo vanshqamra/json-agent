@@ -9,7 +9,7 @@ export default function HomePage() {
   const [error, setError] = useState(null);
 
   const pageList = useMemo(
-    () => result?.pages ?? result?.analyzed_pages ?? [],
+    () => result?.pages_preview ?? result?.pages ?? result?.analyzed_pages ?? [],
     [result]
   );
 
@@ -30,9 +30,22 @@ export default function HomePage() {
         method: "POST",
         body: fd,
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json?.error || "Upload failed");
-      setResult(json);
+      const contentType = res.headers.get("content-type") || "";
+      let payload;
+      if (contentType.includes("application/json")) {
+        payload = await res.json();
+      } else {
+        const text = await res.text();
+        throw new Error(
+          `Unexpected response (${res.status}): ${text.slice(0, 120)}`
+        );
+      }
+      if (!res.ok) {
+        const message =
+          payload?.error?.message || payload?.error || "Upload failed";
+        throw new Error(message);
+      }
+      setResult(payload);
     } catch (err) {
       setError(err.message || "Something went wrong");
     } finally {
