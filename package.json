@@ -13,11 +13,12 @@
     "lint": "echo \"(lint skipped)\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.80.0",
     "next": "14.2.5",
+    "openai": "4.53.2",
+    "pdf-parse": "1.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "pdf-parse": "1.1.1",
-    "openai": "4.53.2",
     "zod": "3.23.8"
   }
 }
