@@ -1,9 +1,8 @@
-import pdfParse from 'pdf-parse';
+import pdfParse from 'pdf-parse/lib/pdf-parse.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-// Pipeline imports via @ alias (now resolved by jsconfig.json)
 import { tokenizeAndClassify } from '@/tokenize.js';
 import { markNoise } from '@/noiseFilter.js';
 import { detectGroups } from '@/groupDetector.js';
