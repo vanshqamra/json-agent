@@ -49,7 +49,10 @@ async function loadPagesFromFormData(req) {
   const formData = await req.formData();
   const file = formData.get('file');
   if (!file || typeof file.arrayBuffer !== 'function') {
-    throw new ParseError('No file uploaded', 400);
+    throw new ParseError(
+      'Provide a PDF via multipart/form-data (field: file) or JSON with a non-empty pages array.',
+      400,
+    );
   }
   const filename = file.name || 'uploaded.pdf';
   const arrayBuffer = await file.arrayBuffer();
@@ -78,11 +81,17 @@ async function loadPagesFromFormData(req) {
 }
 
 async function loadPages(req) {
-  const contentType = req.headers.get('content-type') || '';
+  const contentType = (req.headers.get('content-type') || '').toLowerCase();
   if (contentType.includes('application/json')) {
     return loadPagesFromJson(req);
   }
-  return loadPagesFromFormData(req);
+  if (contentType.includes('multipart/form-data')) {
+    return loadPagesFromFormData(req);
+  }
+  throw new ParseError(
+    'Provide a PDF via multipart/form-data (field: file) or JSON with a non-empty pages array.',
+    400,
+  );
 }
 
 function buildErrorResponse(error) {
