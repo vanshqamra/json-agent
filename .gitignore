@@ -1,4 +1,8 @@
-node_modules
+node_modules/*
+!node_modules/openai/
+!node_modules/openai/index.js
+!node_modules/zod/
+!node_modules/zod/index.js
 .next
 .env
 .env.local
