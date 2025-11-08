@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "title": "ACETIC ACID GLACIAL",
+      "category": "chemical",
+      "variants": [
+        {
+          "code": "AA123",
+          "pack_size": "500 ml"
+        },
+        {
+          "code": "AA123-1",
+          "pack_size": "5 L"
+        }
+      ]
+    },
+    {
+      "title": "SULPHURIC ACID AR",
+      "category": "chemical",
+      "variants": [
+        {
+          "code": "SA789",
+          "pack_size": "500 ml"
+        },
+        {
+          "code": "SA789-1",
+          "pack_size": "2.5 L"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+ACETIC ACID GLACIAL
+Cat No   Pack Size   MRP
+AA123    500 ml      ₹ 450
+AA123-1  5 L        ₹ 3400
+Purity 99.8%
+
+SULPHURIC ACID AR
+Cat. No  Pack Size   Price
+SA789    500 ml      Rs. 350
+SA789-1  2.5 L       Rs. 1200
+Complies with AR grade
+
+INDEX
+Acetic Acid .... 12
+Sulphuric Acid . 13
