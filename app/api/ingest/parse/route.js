@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import { NextResponse } from 'next/server';
 
 import { extractPagesFromArrayBuffer, segmentTextPages } from '@/lib/pdfSegmenter.js';
@@ -7,7 +9,7 @@ import {
   filterPagesByWindow,
   processPagesToFiles,
 } from '@/lib/blockProcessing.js';
-import { ensureDir, getDataDir } from '@/lib/io.js';
+import { ensureDir, getDataDir, writeJson } from '@/lib/io.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -138,14 +140,19 @@ export async function POST(req) {
       throw new ParseError('OpenAI API key is not configured for ingestion.', 503);
     }
 
-    const url = new URL(req.url);
-    const docId = url.searchParams.get('docId');
+    const requestUrl = new URL(req.url);
+    const docId = requestUrl.searchParams.get('docId');
     if (!docId) {
       throw new ParseError('Missing required docId query parameter.', 400);
     }
 
     const dataDir = getDataDir(docId);
-    await ensureDir(dataDir);
+
+    const dryRun = (requestUrl.searchParams.get('dryRun') || '').toLowerCase() === 'true';
+
+    if (!dryRun) {
+      await ensureDir(dataDir);
+    }
 
     let windows = pageWindow
       ? [pageWindow]
@@ -160,12 +167,27 @@ export async function POST(req) {
     for (const window of windows) {
       const windowPages = filterPagesByWindow(pages, window);
       if (!windowPages.length) continue;
-      const results = await processPagesToFiles({
-        docId,
-        pages: windowPages,
-        baseDir: dataDir,
-      });
-      summaries.push(...results);
+      try {
+        const results = await processPagesToFiles({
+          docId,
+          pages: windowPages,
+          baseDir: dataDir,
+          extractionVersion: EXTRACTION_VERSION,
+          dryRun,
+        });
+        summaries.push(...results);
+      } catch (error) {
+        const status = error?.status || 502;
+        const details = error?.details || {
+          message: error?.message,
+          status,
+        };
+        throw new ParseError(
+          error?.message || 'Failed to process document window.',
+          status,
+          details,
+        );
+      }
     }
 
     const responseBody = {
@@ -174,8 +196,22 @@ export async function POST(req) {
       extraction_version: EXTRACTION_VERSION,
       page_windows: windows,
       parts: summaries,
-      storage_path: dataDir,
+      storage_path: dryRun ? null : dataDir,
+      dry_run: dryRun,
     };
+
+    if (!dryRun) {
+      const manifest = {
+        ...responseBody,
+        generated_at: new Date().toISOString(),
+      };
+      try {
+        const manifestPath = path.join(dataDir, 'manifest.json');
+        await writeJson(manifestPath, manifest, { pretty: true });
+      } catch (error) {
+        console.warn('Failed to write manifest file:', error);
+      }
+    }
 
     return NextResponse.json(responseBody, { status: 200 });
   } catch (error) {
