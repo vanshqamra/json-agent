@@ -1,1 +1,1 @@
-export * from './lib/postProcessor.js';
+export { postProcess } from './lib/specNormalizer.js';
