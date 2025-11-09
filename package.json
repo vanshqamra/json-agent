@@ -12,7 +12,8 @@
     "test:whatman": "node tests/whatman.spec.js",
     "dev:sample": "node scripts/dev-sample.js",
     "lint": "echo \"(lint skipped)\"",
-    "chunk:doc": "node scripts/run-llm-chunker.js"
+    "chunk:doc": "node scripts/run-llm-chunker.js",
+    "postinstall": "mkdir -p public && cp node_modules/pdfjs-dist/build/pdf.worker.mjs public/pdf.worker.mjs || true"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.80.0",
