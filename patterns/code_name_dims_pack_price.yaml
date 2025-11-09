@@ -1,0 +1,48 @@
+{
+  "id": "code_name_dims_pack_price",
+  "description": "Code, name, dimensions, pack, price",
+  "columns": [
+    {
+      "role": "code",
+      "required": true,
+      "header_keywords": ["Code", "Cat No", "SKU"],
+      "value_regex": "([A-Z0-9]{3,}[-/][A-Z0-9-]{2,}|[A-Z]{2,}\\d{3,}|\\b\\d{5,}\\b)"
+    },
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Name", "Description", "Product"],
+      "min_length": 3
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["Dimension", "Size"],
+      "value_regex": "(\\d+(?:\\.\\d+)?x\\d+(?:\\.\\d+)?(MM|CM)|\\d+(?:\\.\\d+)?\\s?(MM|CM))"
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Pack", "Unit", "Qty"],
+      "value_regex": "(\\d+(?:\\.\\d+)?\\s?(PK|PCS|BTL|BOX|ML|L|G|KG))"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["code", "name", "price"],
+    "optional_roles": ["pack", "notes"],
+    "min_confidence": 0.45
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": { "₹": "INR", "Rs": "INR", "$": "USD", "€": "EUR" },
+      "codes": { "INR": "INR", "USD": "USD", "EUR": "EUR" }
+    }
+  }
+}

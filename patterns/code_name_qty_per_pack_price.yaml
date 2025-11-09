@@ -1,0 +1,42 @@
+{
+  "id": "code_name_qty_per_pack_price",
+  "description": "Code, name, quantity per pack, price",
+  "columns": [
+    {
+      "role": "code",
+      "required": true,
+      "header_keywords": ["Code", "SKU", "Cat No"],
+      "value_regex": "([A-Z0-9]{2,}[-/][A-Z0-9-]{2,}|[A-Z]{2,}\\d{3,}|\\b\\d{5,}\\b)"
+    },
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Name", "Description", "Product"],
+      "min_length": 3
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Qty/Pack", "Qty", "Pack", "Packaging"],
+      "value_regex": "(\\d+(?:\\.\\d+)?\\s?(PK|PCS|BOX|BTL|ROL|SET)|Pack of \\d+)"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate", "Amount"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["code", "name", "price"],
+    "optional_roles": ["pack"],
+    "min_confidence": 0.45
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": { "₹": "INR", "Rs": "INR", "$": "USD", "€": "EUR" },
+      "codes": { "INR": "INR", "USD": "USD", "EUR": "EUR" }
+    }
+  }
+}

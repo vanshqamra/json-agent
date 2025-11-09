@@ -1,0 +1,42 @@
+{
+  "id": "name_pack_hsn_price",
+  "description": "Name, pack, HSN, price listings",
+  "columns": [
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Name", "Description", "Product", "Item"],
+      "min_length": 4
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Pack", "Size", "Qty"],
+      "value_regex": "(\\d+(?:\\.\\d+)?\\s?(ML|L|G|KG|MM|CM|PK|PCS|BTL|BOX))"
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["HSN"],
+      "value_regex": "\\b\\d{8}\\b"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate", "Amount"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "optional_roles": ["pack", "notes"],
+    "min_confidence": 0.4
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": { "₹": "INR", "Rs": "INR", "$": "USD", "€": "EUR" },
+      "codes": { "INR": "INR", "USD": "USD", "EUR": "EUR" }
+    }
+  }
+}
