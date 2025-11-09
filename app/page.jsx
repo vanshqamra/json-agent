@@ -8,11 +8,26 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [usePriceFallback, setUsePriceFallback] = useState(false);
+  const [useChunker, setUseChunker] = useState(false);
 
   const pageList = useMemo(
     () => result?.pages_preview ?? result?.pages ?? result?.analyzed_pages ?? [],
     [result]
   );
+
+  const chunkStatuses = useMemo(
+    () => (Array.isArray(result?.chunker?.chunks) ? result.chunker.chunks : []),
+    [result]
+  );
+
+  const qcSummary = useMemo(() => {
+    if (!result?.qcReport) return null;
+    return {
+      totals: result.qcReport.totals,
+      confidence: result.qcReport.confidence,
+      fallbackRatio: result.qcReport.rows_via_fallback,
+    };
+  }, [result]);
 
   const groupsPreview = useMemo(() => {
     if (!Array.isArray(result?.groups)) return [];
@@ -47,6 +62,9 @@ export default function HomePage() {
       const endpoint = new URL("/api/ingest/parse", window.location.origin);
       if (usePriceFallback) {
         endpoint.searchParams.set("forcePriceAnchored", "1");
+      }
+      if (useChunker) {
+        endpoint.searchParams.set("useLLMChunker", "1");
       }
       const res = await fetch(endpoint.toString(), {
         method: "POST",
@@ -106,6 +124,14 @@ export default function HomePage() {
             onChange={(e) => setUsePriceFallback(e.target.checked)}
           />
           <span>Use price-anchored fallback (stronger splitting)</span>
+        </label>
+        <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          <input
+            type="checkbox"
+            checked={useChunker}
+            onChange={(e) => setUseChunker(e.target.checked)}
+          />
+          <span>Use LLM chunker (multi-pass)</span>
         </label>
         <button
           type="submit"
@@ -173,6 +199,81 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+          {!!chunkStatuses.length && (
+            <section>
+              <h3>Chunk statuses</h3>
+              <table
+                style={{
+                  width: "100%",
+                  borderCollapse: "collapse",
+                  background: "#0f172a",
+                  borderRadius: 8,
+                  overflow: "hidden",
+                }}
+              >
+                <thead>
+                  <tr>
+                    {["Chunk", "Pages", "Source", "Status", "Cost (USD)", "Retries"].map((header) => (
+                      <th
+                        key={header}
+                        style={{ textAlign: "left", padding: "8px 10px", borderBottom: "1px solid #1f2937" }}
+                      >
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {chunkStatuses.map((chunk) => (
+                    <tr key={chunk.chunkId}>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>{chunk.chunkId}</td>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>
+                        {chunk.pageStart === chunk.pageEnd
+                          ? chunk.pageStart
+                          : `${chunk.pageStart}–${chunk.pageEnd}`}
+                      </td>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>{chunk.source}</td>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>{chunk.status}</td>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>
+                        {chunk.costUsd?.toFixed ? chunk.costUsd.toFixed(4) : Number(chunk.costUsd || 0).toFixed(4)}
+                      </td>
+                      <td style={{ padding: "6px 10px", borderBottom: "1px solid #1f2937" }}>{chunk.retries || 0}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+
+          {qcSummary && (
+            <section>
+              <h3>QC highlights</h3>
+              <div
+                style={{
+                  background: "#0f172a",
+                  padding: 16,
+                  borderRadius: 10,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 6,
+                }}
+              >
+                <div>
+                  <strong>Chunks processed:</strong> {qcSummary.totals?.chunks ?? 0}
+                </div>
+                <div>
+                  <strong>Total variants:</strong> {qcSummary.totals?.variants ?? 0}
+                </div>
+                <div>
+                  <strong>Fallback ratio:</strong> {(Number(qcSummary.fallbackRatio || 0) * 100).toFixed(1)}%
+                </div>
+                <div>
+                  <strong>Mean confidence:</strong> {Number(qcSummary.confidence?.mean || 0).toFixed(3)}
+                </div>
+              </div>
+            </section>
+          )}
 
           <section>
             <h3>First 5 page previews</h3>

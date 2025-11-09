@@ -7,6 +7,7 @@ import { extractPagesFromArrayBuffer, segmentTextPages } from '@/lib/pdfSegmente
 import { isOpenAIConfigured } from '@/lib/openaiClient.js';
 import { ensureDir, getDataDir, writeJson } from '@/lib/io.js';
 import { runCatalogPipeline } from '@/lib/pipeline/catalogPipeline.js';
+import { runLLMChunkerPipeline } from '@/lib/llmChunker/pipeline.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -170,17 +171,40 @@ export async function POST(req) {
       (requestUrl.searchParams.get('forcePriceAnchored') || '').toLowerCase(),
     );
 
-    const pipelineResult = await runCatalogPipeline({
-      docId,
-      pages: filteredPages,
-      source,
-      dataDir: dryRun ? null : dataDir,
-      options: {
-        useLLM,
-        persistArtifacts: !dryRun,
-        forcePriceAnchored,
-      },
-    }).catch(error => {
+    const chunkerToggle = (requestUrl.searchParams.get('useLLMChunker') || '').toLowerCase();
+    const envLLMChunker = (process.env.USE_LLM_CHUNKER || '').toLowerCase();
+    const useLLMChunker =
+      ['1', 'true', 'yes'].includes(chunkerToggle) ||
+      (!['0', 'false', 'no'].includes(chunkerToggle) && ['1', 'true', 'yes'].includes(envLLMChunker));
+
+    const pipelineRunner = useLLMChunker
+      ? runLLMChunkerPipeline({
+          docId,
+          pages: filteredPages,
+          dataDir: dryRun ? null : dataDir,
+          options: {
+            pagesPerChunk: Number.parseInt(requestUrl.searchParams.get('pagesPerChunk') || '', 10) || undefined,
+            concurrency: Number.parseInt(requestUrl.searchParams.get('concurrency') || '', 10) || undefined,
+            maxUsd: requestUrl.searchParams.get('maxUsd')
+              ? Number.parseFloat(requestUrl.searchParams.get('maxUsd'))
+              : undefined,
+            forcePriceAnchored,
+            useCache: !(['1', 'true'].includes((requestUrl.searchParams.get('nocache') || '').toLowerCase())),
+          },
+        })
+      : runCatalogPipeline({
+          docId,
+          pages: filteredPages,
+          source,
+          dataDir: dryRun ? null : dataDir,
+          options: {
+            useLLM,
+            persistArtifacts: !dryRun,
+            forcePriceAnchored,
+          },
+        });
+
+    const pipelineResult = await pipelineRunner.catch(error => {
       console.error('Catalog pipeline crashed:', error);
       return {
         version: EXTRACTION_VERSION,
