@@ -13,6 +13,23 @@ export default function HomePage() {
     [result]
   );
 
+  const groupsPreview = useMemo(() => {
+    if (!Array.isArray(result?.groups)) return [];
+    return result.groups.slice(0, 5).map((group) => ({
+      title: group.title,
+      category: group.category,
+      variants: Array.isArray(group.variants) ? group.variants.length : 0,
+      pageRange: group.pageStart
+        ? `${group.pageStart}${group.pageEnd && group.pageEnd !== group.pageStart ? `–${group.pageEnd}` : ""}`
+        : "",
+    }));
+  }, [result]);
+
+  const validationIssues = useMemo(() => {
+    const errors = result?.validation?.errors ?? [];
+    return errors.slice(0, 10);
+  }, [result]);
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError(null);
@@ -109,40 +126,129 @@ export default function HomePage() {
       )}
 
       {result && (
-        <div style={{ marginTop: 16 }}>
-          <h3>First 5 page previews</h3>
-          <pre
-            style={{
-              whiteSpace: "pre-wrap",
-              background: "#0f172a",
-              padding: 12,
-              borderRadius: 8,
-              maxHeight: 420,
-              overflow: "auto",
-            }}
-          >
-            {JSON.stringify(pageList.slice(0, 5), null, 2)}
-          </pre>
+        <div style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 24 }}>
+          <section>
+            <h3>Pipeline summary</h3>
+            <div
+              style={{
+                background: "#0f172a",
+                padding: 16,
+                borderRadius: 10,
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+              }}
+            >
+              <div>
+                <strong>Status:</strong> {result.status || "unknown"}
+              </div>
+              <div>
+                <strong>Groups detected:</strong> {result.groups?.length || 0}
+              </div>
+              <div>
+                <strong>LLM:</strong>{" "}
+                {result.llm?.configured
+                  ? result.llm?.used
+                    ? "used"
+                    : "available but not used"
+                  : result.llm?.enabled === false
+                  ? "disabled"
+                  : "not configured"}
+              </div>
+            </div>
+          </section>
 
-          {result.groups?.length ? (
-            <>
-              <h3 style={{ marginTop: 24 }}>Detected groups (early pass)</h3>
-              <pre
+          <section>
+            <h3>First 5 page previews</h3>
+            <pre
+              style={{
+                whiteSpace: "pre-wrap",
+                background: "#0f172a",
+                padding: 12,
+                borderRadius: 8,
+                maxHeight: 420,
+                overflow: "auto",
+              }}
+            >
+              {JSON.stringify(pageList.slice(0, 5), null, 2)}
+            </pre>
+          </section>
+
+          {!!groupsPreview.length && (
+            <section>
+              <h3>Groups (first {groupsPreview.length})</h3>
+              <table
                 style={{
-                  whiteSpace: "pre-wrap",
+                  width: "100%",
+                  borderCollapse: "collapse",
                   background: "#0f172a",
-                  padding: 12,
                   borderRadius: 8,
-                  maxHeight: 420,
-                  overflow: "auto",
+                  overflow: "hidden",
                 }}
               >
-                {JSON.stringify(result.groups, null, 2)}
-              </pre>
-            </>
-          ) : null}
+                <thead>
+                  <tr style={{ background: "#1e293b" }}>
+                    <th style={{ padding: 8, textAlign: "left" }}>Title</th>
+                    <th style={{ padding: 8, textAlign: "left" }}>Category</th>
+                    <th style={{ padding: 8, textAlign: "right" }}>Variants</th>
+                    <th style={{ padding: 8, textAlign: "right" }}>Pages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {groupsPreview.map((group) => (
+                    <tr key={`${group.title}-${group.pageRange}`}>
+                      <td style={{ padding: 8, borderTop: "1px solid #1f2937" }}>{group.title}</td>
+                      <td style={{ padding: 8, borderTop: "1px solid #1f2937" }}>{group.category}</td>
+                      <td
+                        style={{
+                          padding: 8,
+                          borderTop: "1px solid #1f2937",
+                          textAlign: "right",
+                        }}
+                      >
+                        {group.variants}
+                      </td>
+                      <td
+                        style={{
+                          padding: 8,
+                          borderTop: "1px solid #1f2937",
+                          textAlign: "right",
+                        }}
+                      >
+                        {group.pageRange}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
 
-          <details style={{ marginTop: 16 }}>
+          {!!result.warnings?.length && (
+            <section>
+              <h3>Warnings</h3>
+              <ul style={{ margin: 0, paddingLeft: 20 }}>
+                {result.warnings.slice(0, 10).map((warning) => (
+                  <li key={warning}>{warning}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {!!validationIssues.length && (
+            <section>
+              <h3>Validation issues</h3>
+              <ul style={{ margin: 0, paddingLeft: 20 }}>
+                {validationIssues.map((issue, index) => (
+                  <li key={`${issue.kind || "issue"}-${index}`}>
+                    <code>{issue.kind ?? "group"}</code>: {issue.title ?? issue.reference ?? "unknown"}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          <details>
             <summary>Full JSON (debug)</summary>
             <pre
               style={{
