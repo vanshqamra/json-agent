@@ -1,0 +1,42 @@
+{
+  "id": "name_molarity_pack_price",
+  "description": "Name, molarity, pack, price",
+  "columns": [
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Name", "Description", "Product"],
+      "min_length": 3
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["Molarity", "Conc", "Concentration"],
+      "value_regex": "\\b\\d+(?:\\.\\d+)?M\\b"
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Pack", "Size", "Qty"],
+      "value_regex": "(\\d+(?:\\.\\d+)?\\s?(ML|L|G|KG|PK|PCS|BTL))"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "optional_roles": ["pack", "notes"],
+    "min_confidence": 0.4
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": { "₹": "INR", "Rs": "INR", "$": "USD", "€": "EUR" },
+      "codes": { "INR": "INR", "USD": "USD", "EUR": "EUR" }
+    }
+  }
+}

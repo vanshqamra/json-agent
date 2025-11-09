@@ -5,15 +5,25 @@ anchoring on the right-most price tokens.
 
 ## Heuristics
 
-1. Collect line-level text from `pages.raw.json` (text blocks, labelled segments, and tables).
-2. Identify candidate price cells using currency keywords (`price`, `mrp`, `rate`) and
-   trailing numeric tokens (₹, €, $, integers, decimals).
-3. For each price cell, scan leftwards to pull out `code`, `cas`, `name`, and `pack` values using
-   lightweight regular expressions.
-4. Attach continuation lines (without a price) to the previous row's `name` field.
-5. Parse numbers using locale-aware rules (Indian, US, and EU grouping) and normalise currency codes.
-6. Produce a per-row confidence score and field bitmask to support UI highlighting.
-7. Record `low_confidence` rows alongside textual leftovers so they can be inspected manually.
+1. Collect line-level text from `pages.raw.json` (text blocks, labelled segments, tables, and the
+   raw PDF tokens supplied by `pdfjs-dist`).
+2. Detect header rows (`Cat No`, `Description`, `HSN`, `GST`, `Price`, `INR`, `LP`) and only begin
+   harvesting rows after the first header has been observed. If a document has no header, we still
+   recover rows but penalise their confidence.
+3. Identify candidate price cells by clustering the right-most purely numeric token per row (2–7
+   digits, optional decimals) and ignoring tokens that contain `%` or sit in GST columns. The
+   string-based fallback honours the same boundary rules.
+4. Use the chosen price token as a guard: each hit defines a row whose left boundary is the previous
+   price centre (or the line start). This prevents multiple items on a single line from merging into
+   one variant.
+5. Classify supporting fields with targeted regexes—hyphenated SKUs, non-8-digit numeric SKUs,
+   packs (`10/PK`, `500 mL`, `10x10mm`), molarity, and HSN/GST values—then reconstruct the product
+   name from the span between the code (or first non-HSN token) and the pack cell.
+6. Parse numbers using locale-aware rules (Indian, US, and EU grouping) and normalise currency
+   symbols/keywords (`₹`, `INR`, `LP`, `MRP`, `Rate`).
+7. Emit deterministic confidence scores that reward rich rows (code + name + pack + HSN/GST) and
+   penalise ambiguous matches, duplicate prices on a line, or documents with no header.
+8. Record `low_confidence` rows alongside textual leftovers so they can be inspected manually.
 
 ## Limits
 
