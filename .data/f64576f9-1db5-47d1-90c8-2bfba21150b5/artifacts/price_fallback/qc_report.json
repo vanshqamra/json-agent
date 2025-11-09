@@ -1,0 +1,2147 @@
+{
+  "docId": "f64576f9-1db5-47d1-90c8-2bfba21150b5",
+  "engine": "price_anchored",
+  "matched_pattern": "price_anchored",
+  "matched_rows": 132,
+  "fields": [
+    "code",
+    "cas",
+    "name",
+    "pack",
+    "pack_raw",
+    "price_value",
+    "currency",
+    "notes"
+  ],
+  "rows": [
+    {
+      "index": 0,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-012 Whatman Grade GF/A Glass Microfiber Filter HSN 12345670 GST 5% 25/PK INR 1,207",
+        "pageNumber": 1,
+        "blockId": "p1-t1-seg1"
+      }
+    },
+    {
+      "index": 1,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-013 Whatman Grade GF/B Glass Microfiber Filter HSN 12345671 GST 12% 50/PK INR 1,214",
+        "pageNumber": 1,
+        "blockId": "p1-t1-seg2"
+      }
+    },
+    {
+      "index": 2,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-014 Whatman Grade GF/C Glass Microfiber Filter HSN 12345672 GST 18% 100/PK INR 1,221",
+        "pageNumber": 1,
+        "blockId": "p1-t1-seg3"
+      }
+    },
+    {
+      "index": 3,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-015 Whatman Grade GF/D Glass Microfiber Filter HSN 12345673 GST 5% 1RL/PK INR 1,228",
+        "pageNumber": 1,
+        "blockId": "p1-t1-seg4"
+      }
+    },
+    {
+      "index": 4,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-016 Whatman Grade GF/F Glass Microfiber Filter HSN 12345674 GST 12% PK25 INR 1,235",
+        "pageNumber": 1,
+        "blockId": "p1-t2-seg1"
+      }
+    },
+    {
+      "index": 5,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-017 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345675 GST 18% PK50 INR 1,242",
+        "pageNumber": 1,
+        "blockId": "p1-t2-seg2"
+      }
+    },
+    {
+      "index": 6,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-018 Whatman Grade GF/T Glass Microfiber Filter HSN 12345676 GST 5% 10PCS INR 1,249",
+        "pageNumber": 1,
+        "blockId": "p1-t2-seg3"
+      }
+    },
+    {
+      "index": 7,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-019 Whatman Grade GF/V Glass Microfiber Filter HSN 12345677 GST 12% 2RL/PK INR 1,256",
+        "pageNumber": 1,
+        "blockId": "p1-t2-seg4"
+      }
+    },
+    {
+      "index": 8,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-020 Whatman Grade GF/A Glass Microfiber Filter HSN 12345678 GST 18% 25/PK INR 1,263",
+        "pageNumber": 1,
+        "blockId": "p1-t3-seg1"
+      }
+    },
+    {
+      "index": 9,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-021 Whatman Grade GF/B Glass Microfiber Filter HSN 12345679 GST 5% 50/PK INR 1,270",
+        "pageNumber": 1,
+        "blockId": "p1-t3-seg2"
+      }
+    },
+    {
+      "index": 10,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-022 Whatman Grade GF/C Glass Microfiber Filter HSN 12345680 GST 12% 100/PK INR 1,277",
+        "pageNumber": 1,
+        "blockId": "p1-t3-seg3"
+      }
+    },
+    {
+      "index": 11,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1950-023 Whatman Grade GF/D Glass Microfiber Filter HSN 12345681 GST 18% 1RL/PK INR 1,284",
+        "pageNumber": 1,
+        "blockId": "p1-t3-seg4"
+      }
+    },
+    {
+      "index": 12,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-024 Whatman Grade GF/F Glass Microfiber Filter HSN 12345682 GST 5% PK25 INR 1,291",
+        "pageNumber": 1,
+        "blockId": "p1-t4-seg1"
+      }
+    },
+    {
+      "index": 13,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-025 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345683 GST 12% PK50 INR 1,298",
+        "pageNumber": 1,
+        "blockId": "p1-t4-seg2"
+      }
+    },
+    {
+      "index": 14,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-026 Whatman Grade GF/T Glass Microfiber Filter HSN 12345684 GST 18% 10PCS INR 1,305",
+        "pageNumber": 1,
+        "blockId": "p1-t4-seg3"
+      }
+    },
+    {
+      "index": 15,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-027 Whatman Grade GF/V Glass Microfiber Filter HSN 12345685 GST 5% 2RL/PK INR 1,312",
+        "pageNumber": 1,
+        "blockId": "p1-t4-seg4"
+      }
+    },
+    {
+      "index": 16,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-028 Whatman Grade GF/A Glass Microfiber Filter HSN 12345686 GST 12% 25/PK INR 1,319",
+        "pageNumber": 1,
+        "blockId": "p1-t5-seg1"
+      }
+    },
+    {
+      "index": 17,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-029 Whatman Grade GF/B Glass Microfiber Filter HSN 12345687 GST 18% 50/PK INR 1,326",
+        "pageNumber": 1,
+        "blockId": "p1-t5-seg2"
+      }
+    },
+    {
+      "index": 18,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-030 Whatman Grade GF/C Glass Microfiber Filter HSN 12345688 GST 5% 100/PK INR 1,333",
+        "pageNumber": 1,
+        "blockId": "p1-t5-seg3"
+      }
+    },
+    {
+      "index": 19,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-031 Whatman Grade GF/D Glass Microfiber Filter HSN 12345689 GST 12% 1RL/PK INR 1,340",
+        "pageNumber": 1,
+        "blockId": "p1-t5-seg4"
+      }
+    },
+    {
+      "index": 20,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-032 Whatman Grade GF/F Glass Microfiber Filter HSN 12345690 GST 18% PK25 INR 1,347",
+        "pageNumber": 1,
+        "blockId": "p1-t6-seg1"
+      }
+    },
+    {
+      "index": 21,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-033 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345691 GST 5% PK50 INR 1,354",
+        "pageNumber": 1,
+        "blockId": "p1-t6-seg2"
+      }
+    },
+    {
+      "index": 22,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-034 Whatman Grade GF/T Glass Microfiber Filter HSN 12345692 GST 12% 10PCS INR 1,361",
+        "pageNumber": 1,
+        "blockId": "p1-t6-seg3"
+      }
+    },
+    {
+      "index": 23,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1951-035 Whatman Grade GF/V Glass Microfiber Filter HSN 12345693 GST 18% 2RL/PK INR 1,368",
+        "pageNumber": 1,
+        "blockId": "p1-t6-seg4"
+      }
+    },
+    {
+      "index": 24,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-036 Whatman Grade GF/A Glass Microfiber Filter HSN 12345694 GST 5% 25/PK INR 1,375",
+        "pageNumber": 2,
+        "blockId": "p2-t1-seg1"
+      }
+    },
+    {
+      "index": 25,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-037 Whatman Grade GF/B Glass Microfiber Filter HSN 12345695 GST 12% 50/PK INR 1,382",
+        "pageNumber": 2,
+        "blockId": "p2-t1-seg2"
+      }
+    },
+    {
+      "index": 26,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-038 Whatman Grade GF/C Glass Microfiber Filter HSN 12345696 GST 18% 100/PK INR 1,389",
+        "pageNumber": 2,
+        "blockId": "p2-t1-seg3"
+      }
+    },
+    {
+      "index": 27,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-039 Whatman Grade GF/D Glass Microfiber Filter HSN 12345697 GST 5% 1RL/PK INR 1,396",
+        "pageNumber": 2,
+        "blockId": "p2-t1-seg4"
+      }
+    },
+    {
+      "index": 28,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-040 Whatman Grade GF/F Glass Microfiber Filter HSN 12345698 GST 12% PK25 INR 1,403",
+        "pageNumber": 2,
+        "blockId": "p2-t2-seg1"
+      }
+    },
+    {
+      "index": 29,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-041 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345699 GST 18% PK50 INR 1,410",
+        "pageNumber": 2,
+        "blockId": "p2-t2-seg2"
+      }
+    },
+    {
+      "index": 30,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-042 Whatman Grade GF/T Glass Microfiber Filter HSN 12345700 GST 5% 10PCS INR 1,417",
+        "pageNumber": 2,
+        "blockId": "p2-t2-seg3"
+      }
+    },
+    {
+      "index": 31,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-043 Whatman Grade GF/V Glass Microfiber Filter HSN 12345701 GST 12% 2RL/PK INR 1,424",
+        "pageNumber": 2,
+        "blockId": "p2-t2-seg4"
+      }
+    },
+    {
+      "index": 32,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-044 Whatman Grade GF/A Glass Microfiber Filter HSN 12345702 GST 18% 25/PK INR 1,431",
+        "pageNumber": 2,
+        "blockId": "p2-t3-seg1"
+      }
+    },
+    {
+      "index": 33,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-045 Whatman Grade GF/B Glass Microfiber Filter HSN 12345703 GST 5% 50/PK INR 1,438",
+        "pageNumber": 2,
+        "blockId": "p2-t3-seg2"
+      }
+    },
+    {
+      "index": 34,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-046 Whatman Grade GF/C Glass Microfiber Filter HSN 12345704 GST 12% 100/PK INR 1,445",
+        "pageNumber": 2,
+        "blockId": "p2-t3-seg3"
+      }
+    },
+    {
+      "index": 35,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1952-047 Whatman Grade GF/D Glass Microfiber Filter HSN 12345705 GST 18% 1RL/PK INR 1,452",
+        "pageNumber": 2,
+        "blockId": "p2-t3-seg4"
+      }
+    },
+    {
+      "index": 36,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-048 Whatman Grade GF/F Glass Microfiber Filter HSN 12345706 GST 5% PK25 INR 1,459",
+        "pageNumber": 2,
+        "blockId": "p2-t4-seg1"
+      }
+    },
+    {
+      "index": 37,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-049 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345707 GST 12% PK50 INR 1,466",
+        "pageNumber": 2,
+        "blockId": "p2-t4-seg2"
+      }
+    },
+    {
+      "index": 38,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-050 Whatman Grade GF/T Glass Microfiber Filter HSN 12345708 GST 18% 10PCS INR 1,473",
+        "pageNumber": 2,
+        "blockId": "p2-t4-seg3"
+      }
+    },
+    {
+      "index": 39,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-051 Whatman Grade GF/V Glass Microfiber Filter HSN 12345709 GST 5% 2RL/PK INR 1,480",
+        "pageNumber": 2,
+        "blockId": "p2-t4-seg4"
+      }
+    },
+    {
+      "index": 40,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-052 Whatman Grade GF/A Glass Microfiber Filter HSN 12345710 GST 12% 25/PK INR 1,487",
+        "pageNumber": 2,
+        "blockId": "p2-t5-seg1"
+      }
+    },
+    {
+      "index": 41,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-053 Whatman Grade GF/B Glass Microfiber Filter HSN 12345711 GST 18% 50/PK INR 1,494",
+        "pageNumber": 2,
+        "blockId": "p2-t5-seg2"
+      }
+    },
+    {
+      "index": 42,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-054 Whatman Grade GF/C Glass Microfiber Filter HSN 12345712 GST 5% 100/PK INR 1,501",
+        "pageNumber": 2,
+        "blockId": "p2-t5-seg3"
+      }
+    },
+    {
+      "index": 43,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-055 Whatman Grade GF/D Glass Microfiber Filter HSN 12345713 GST 12% 1RL/PK INR 1,508",
+        "pageNumber": 2,
+        "blockId": "p2-t5-seg4"
+      }
+    },
+    {
+      "index": 44,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-056 Whatman Grade GF/F Glass Microfiber Filter HSN 12345714 GST 18% PK25 INR 1,515",
+        "pageNumber": 2,
+        "blockId": "p2-t6-seg1"
+      }
+    },
+    {
+      "index": 45,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-057 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345715 GST 5% PK50 INR 1,522",
+        "pageNumber": 2,
+        "blockId": "p2-t6-seg2"
+      }
+    },
+    {
+      "index": 46,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-058 Whatman Grade GF/T Glass Microfiber Filter HSN 12345716 GST 12% 10PCS INR 1,529",
+        "pageNumber": 2,
+        "blockId": "p2-t6-seg3"
+      }
+    },
+    {
+      "index": 47,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1953-059 Whatman Grade GF/V Glass Microfiber Filter HSN 12345717 GST 18% 2RL/PK INR 1,536",
+        "pageNumber": 2,
+        "blockId": "p2-t6-seg4"
+      }
+    },
+    {
+      "index": 48,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-060 Whatman Grade GF/A Glass Microfiber Filter HSN 12345718 GST 5% 25/PK INR 1,543",
+        "pageNumber": 3,
+        "blockId": "p3-t1-seg1"
+      }
+    },
+    {
+      "index": 49,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-061 Whatman Grade GF/B Glass Microfiber Filter HSN 12345719 GST 12% 50/PK INR 1,550",
+        "pageNumber": 3,
+        "blockId": "p3-t1-seg2"
+      }
+    },
+    {
+      "index": 50,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-062 Whatman Grade GF/C Glass Microfiber Filter HSN 12345670 GST 18% 100/PK INR 1,557",
+        "pageNumber": 3,
+        "blockId": "p3-t1-seg3"
+      }
+    },
+    {
+      "index": 51,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-063 Whatman Grade GF/D Glass Microfiber Filter HSN 12345671 GST 5% 1RL/PK INR 1,564",
+        "pageNumber": 3,
+        "blockId": "p3-t1-seg4"
+      }
+    },
+    {
+      "index": 52,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-064 Whatman Grade GF/F Glass Microfiber Filter HSN 12345672 GST 12% PK25 INR 1,571",
+        "pageNumber": 3,
+        "blockId": "p3-t2-seg1"
+      }
+    },
+    {
+      "index": 53,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-065 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345673 GST 18% PK50 INR 1,578",
+        "pageNumber": 3,
+        "blockId": "p3-t2-seg2"
+      }
+    },
+    {
+      "index": 54,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-066 Whatman Grade GF/T Glass Microfiber Filter HSN 12345674 GST 5% 10PCS INR 1,585",
+        "pageNumber": 3,
+        "blockId": "p3-t2-seg3"
+      }
+    },
+    {
+      "index": 55,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-067 Whatman Grade GF/V Glass Microfiber Filter HSN 12345675 GST 12% 2RL/PK INR 1,592",
+        "pageNumber": 3,
+        "blockId": "p3-t2-seg4"
+      }
+    },
+    {
+      "index": 56,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-068 Whatman Grade GF/A Glass Microfiber Filter HSN 12345676 GST 18% 25/PK INR 1,599",
+        "pageNumber": 3,
+        "blockId": "p3-t3-seg1"
+      }
+    },
+    {
+      "index": 57,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-069 Whatman Grade GF/B Glass Microfiber Filter HSN 12345677 GST 5% 50/PK INR 1,606",
+        "pageNumber": 3,
+        "blockId": "p3-t3-seg2"
+      }
+    },
+    {
+      "index": 58,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-070 Whatman Grade GF/C Glass Microfiber Filter HSN 12345678 GST 12% 100/PK INR 1,613",
+        "pageNumber": 3,
+        "blockId": "p3-t3-seg3"
+      }
+    },
+    {
+      "index": 59,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1954-071 Whatman Grade GF/D Glass Microfiber Filter HSN 12345679 GST 18% 1RL/PK INR 1,620",
+        "pageNumber": 3,
+        "blockId": "p3-t3-seg4"
+      }
+    },
+    {
+      "index": 60,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-072 Whatman Grade GF/F Glass Microfiber Filter HSN 12345680 GST 5% PK25 INR 1,627",
+        "pageNumber": 3,
+        "blockId": "p3-t4-seg1"
+      }
+    },
+    {
+      "index": 61,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-073 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345681 GST 12% PK50 INR 1,634",
+        "pageNumber": 3,
+        "blockId": "p3-t4-seg2"
+      }
+    },
+    {
+      "index": 62,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-074 Whatman Grade GF/T Glass Microfiber Filter HSN 12345682 GST 18% 10PCS INR 1,641",
+        "pageNumber": 3,
+        "blockId": "p3-t4-seg3"
+      }
+    },
+    {
+      "index": 63,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-075 Whatman Grade GF/V Glass Microfiber Filter HSN 12345683 GST 5% 2RL/PK INR 1,648",
+        "pageNumber": 3,
+        "blockId": "p3-t4-seg4"
+      }
+    },
+    {
+      "index": 64,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-076 Whatman Grade GF/A Glass Microfiber Filter HSN 12345684 GST 12% 25/PK INR 1,655",
+        "pageNumber": 3,
+        "blockId": "p3-t5-seg1"
+      }
+    },
+    {
+      "index": 65,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-077 Whatman Grade GF/B Glass Microfiber Filter HSN 12345685 GST 18% 50/PK INR 1,662",
+        "pageNumber": 3,
+        "blockId": "p3-t5-seg2"
+      }
+    },
+    {
+      "index": 66,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-078 Whatman Grade GF/C Glass Microfiber Filter HSN 12345686 GST 5% 100/PK INR 1,669",
+        "pageNumber": 3,
+        "blockId": "p3-t5-seg3"
+      }
+    },
+    {
+      "index": 67,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-079 Whatman Grade GF/D Glass Microfiber Filter HSN 12345687 GST 12% 1RL/PK INR 1,676",
+        "pageNumber": 3,
+        "blockId": "p3-t5-seg4"
+      }
+    },
+    {
+      "index": 68,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-080 Whatman Grade GF/F Glass Microfiber Filter HSN 12345688 GST 18% PK25 INR 1,683",
+        "pageNumber": 3,
+        "blockId": "p3-t6-seg1"
+      }
+    },
+    {
+      "index": 69,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-081 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345689 GST 5% PK50 INR 1,690",
+        "pageNumber": 3,
+        "blockId": "p3-t6-seg2"
+      }
+    },
+    {
+      "index": 70,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-082 Whatman Grade GF/T Glass Microfiber Filter HSN 12345690 GST 12% 10PCS INR 1,697",
+        "pageNumber": 3,
+        "blockId": "p3-t6-seg3"
+      }
+    },
+    {
+      "index": 71,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1955-083 Whatman Grade GF/V Glass Microfiber Filter HSN 12345691 GST 18% 2RL/PK INR 1,704",
+        "pageNumber": 3,
+        "blockId": "p3-t6-seg4"
+      }
+    },
+    {
+      "index": 72,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-084 Whatman Grade GF/A Glass Microfiber Filter HSN 12345692 GST 5% 25/PK INR 1,711",
+        "pageNumber": 4,
+        "blockId": "p4-t1-seg1"
+      }
+    },
+    {
+      "index": 73,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-085 Whatman Grade GF/B Glass Microfiber Filter HSN 12345693 GST 12% 50/PK INR 1,718",
+        "pageNumber": 4,
+        "blockId": "p4-t1-seg2"
+      }
+    },
+    {
+      "index": 74,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-086 Whatman Grade GF/C Glass Microfiber Filter HSN 12345694 GST 18% 100/PK INR 1,725",
+        "pageNumber": 4,
+        "blockId": "p4-t1-seg3"
+      }
+    },
+    {
+      "index": 75,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-087 Whatman Grade GF/D Glass Microfiber Filter HSN 12345695 GST 5% 1RL/PK INR 1,732",
+        "pageNumber": 4,
+        "blockId": "p4-t1-seg4"
+      }
+    },
+    {
+      "index": 76,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-088 Whatman Grade GF/F Glass Microfiber Filter HSN 12345696 GST 12% PK25 INR 1,739",
+        "pageNumber": 4,
+        "blockId": "p4-t2-seg1"
+      }
+    },
+    {
+      "index": 77,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-089 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345697 GST 18% PK50 INR 1,746",
+        "pageNumber": 4,
+        "blockId": "p4-t2-seg2"
+      }
+    },
+    {
+      "index": 78,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-090 Whatman Grade GF/T Glass Microfiber Filter HSN 12345698 GST 5% 10PCS INR 1,753",
+        "pageNumber": 4,
+        "blockId": "p4-t2-seg3"
+      }
+    },
+    {
+      "index": 79,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-091 Whatman Grade GF/V Glass Microfiber Filter HSN 12345699 GST 12% 2RL/PK INR 1,760",
+        "pageNumber": 4,
+        "blockId": "p4-t2-seg4"
+      }
+    },
+    {
+      "index": 80,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-092 Whatman Grade GF/A Glass Microfiber Filter HSN 12345700 GST 18% 25/PK INR 1,767",
+        "pageNumber": 4,
+        "blockId": "p4-t3-seg1"
+      }
+    },
+    {
+      "index": 81,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-093 Whatman Grade GF/B Glass Microfiber Filter HSN 12345701 GST 5% 50/PK INR 1,774",
+        "pageNumber": 4,
+        "blockId": "p4-t3-seg2"
+      }
+    },
+    {
+      "index": 82,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-094 Whatman Grade GF/C Glass Microfiber Filter HSN 12345702 GST 12% 100/PK INR 1,781",
+        "pageNumber": 4,
+        "blockId": "p4-t3-seg3"
+      }
+    },
+    {
+      "index": 83,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1956-095 Whatman Grade GF/D Glass Microfiber Filter HSN 12345703 GST 18% 1RL/PK INR 1,788",
+        "pageNumber": 4,
+        "blockId": "p4-t3-seg4"
+      }
+    },
+    {
+      "index": 84,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-096 Whatman Grade GF/F Glass Microfiber Filter HSN 12345704 GST 5% PK25 INR 1,795",
+        "pageNumber": 4,
+        "blockId": "p4-t4-seg1"
+      }
+    },
+    {
+      "index": 85,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-097 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345705 GST 12% PK50 INR 1,802",
+        "pageNumber": 4,
+        "blockId": "p4-t4-seg2"
+      }
+    },
+    {
+      "index": 86,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-098 Whatman Grade GF/T Glass Microfiber Filter HSN 12345706 GST 18% 10PCS INR 1,809",
+        "pageNumber": 4,
+        "blockId": "p4-t4-seg3"
+      }
+    },
+    {
+      "index": 87,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-099 Whatman Grade GF/V Glass Microfiber Filter HSN 12345707 GST 5% 2RL/PK INR 1,816",
+        "pageNumber": 4,
+        "blockId": "p4-t4-seg4"
+      }
+    },
+    {
+      "index": 88,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-100 Whatman Grade GF/A Glass Microfiber Filter HSN 12345708 GST 12% 25/PK INR 1,823",
+        "pageNumber": 4,
+        "blockId": "p4-t5-seg1"
+      }
+    },
+    {
+      "index": 89,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-101 Whatman Grade GF/B Glass Microfiber Filter HSN 12345709 GST 18% 50/PK INR 1,830",
+        "pageNumber": 4,
+        "blockId": "p4-t5-seg2"
+      }
+    },
+    {
+      "index": 90,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-102 Whatman Grade GF/C Glass Microfiber Filter HSN 12345710 GST 5% 100/PK INR 1,837",
+        "pageNumber": 4,
+        "blockId": "p4-t5-seg3"
+      }
+    },
+    {
+      "index": 91,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-103 Whatman Grade GF/D Glass Microfiber Filter HSN 12345711 GST 12% 1RL/PK INR 1,844",
+        "pageNumber": 4,
+        "blockId": "p4-t5-seg4"
+      }
+    },
+    {
+      "index": 92,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-104 Whatman Grade GF/F Glass Microfiber Filter HSN 12345712 GST 18% PK25 INR 1,851",
+        "pageNumber": 4,
+        "blockId": "p4-t6-seg1"
+      }
+    },
+    {
+      "index": 93,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-105 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345713 GST 5% PK50 INR 1,858",
+        "pageNumber": 4,
+        "blockId": "p4-t6-seg2"
+      }
+    },
+    {
+      "index": 94,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-106 Whatman Grade GF/T Glass Microfiber Filter HSN 12345714 GST 12% 10PCS INR 1,865",
+        "pageNumber": 4,
+        "blockId": "p4-t6-seg3"
+      }
+    },
+    {
+      "index": 95,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1957-107 Whatman Grade GF/V Glass Microfiber Filter HSN 12345715 GST 18% 2RL/PK INR 1,872",
+        "pageNumber": 4,
+        "blockId": "p4-t6-seg4"
+      }
+    },
+    {
+      "index": 96,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-108 Whatman Grade GF/A Glass Microfiber Filter HSN 12345716 GST 5% 25/PK INR 1,879",
+        "pageNumber": 5,
+        "blockId": "p5-t1-seg1"
+      }
+    },
+    {
+      "index": 97,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-109 Whatman Grade GF/B Glass Microfiber Filter HSN 12345717 GST 12% 50/PK INR 1,886",
+        "pageNumber": 5,
+        "blockId": "p5-t1-seg2"
+      }
+    },
+    {
+      "index": 98,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-110 Whatman Grade GF/C Glass Microfiber Filter HSN 12345718 GST 18% 100/PK INR 1,893",
+        "pageNumber": 5,
+        "blockId": "p5-t1-seg3"
+      }
+    },
+    {
+      "index": 99,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-111 Whatman Grade GF/D Glass Microfiber Filter HSN 12345719 GST 5% 1RL/PK INR 1,900",
+        "pageNumber": 5,
+        "blockId": "p5-t1-seg4"
+      }
+    },
+    {
+      "index": 100,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-012 Whatman Grade GF/F Glass Microfiber Filter HSN 12345670 GST 12% PK25 INR 1,907",
+        "pageNumber": 5,
+        "blockId": "p5-t2-seg1"
+      }
+    },
+    {
+      "index": 101,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-013 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345671 GST 18% PK50 INR 1,914",
+        "pageNumber": 5,
+        "blockId": "p5-t2-seg2"
+      }
+    },
+    {
+      "index": 102,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-014 Whatman Grade GF/T Glass Microfiber Filter HSN 12345672 GST 5% 10PCS INR 1,921",
+        "pageNumber": 5,
+        "blockId": "p5-t2-seg3"
+      }
+    },
+    {
+      "index": 103,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-015 Whatman Grade GF/V Glass Microfiber Filter HSN 12345673 GST 12% 2RL/PK INR 1,928",
+        "pageNumber": 5,
+        "blockId": "p5-t2-seg4"
+      }
+    },
+    {
+      "index": 104,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-016 Whatman Grade GF/A Glass Microfiber Filter HSN 12345674 GST 18% 25/PK INR 1,935",
+        "pageNumber": 5,
+        "blockId": "p5-t3-seg1"
+      }
+    },
+    {
+      "index": 105,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-017 Whatman Grade GF/B Glass Microfiber Filter HSN 12345675 GST 5% 50/PK INR 1,942",
+        "pageNumber": 5,
+        "blockId": "p5-t3-seg2"
+      }
+    },
+    {
+      "index": 106,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-018 Whatman Grade GF/C Glass Microfiber Filter HSN 12345676 GST 12% 100/PK INR 1,949",
+        "pageNumber": 5,
+        "blockId": "p5-t3-seg3"
+      }
+    },
+    {
+      "index": 107,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1958-019 Whatman Grade GF/D Glass Microfiber Filter HSN 12345677 GST 18% 1RL/PK INR 1,956",
+        "pageNumber": 5,
+        "blockId": "p5-t3-seg4"
+      }
+    },
+    {
+      "index": 108,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-020 Whatman Grade GF/F Glass Microfiber Filter HSN 12345678 GST 5% PK25 INR 1,963",
+        "pageNumber": 5,
+        "blockId": "p5-t4-seg1"
+      }
+    },
+    {
+      "index": 109,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-021 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345679 GST 12% PK50 INR 1,970",
+        "pageNumber": 5,
+        "blockId": "p5-t4-seg2"
+      }
+    },
+    {
+      "index": 110,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-022 Whatman Grade GF/T Glass Microfiber Filter HSN 12345680 GST 18% 10PCS INR 1,977",
+        "pageNumber": 5,
+        "blockId": "p5-t4-seg3"
+      }
+    },
+    {
+      "index": 111,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-023 Whatman Grade GF/V Glass Microfiber Filter HSN 12345681 GST 5% 2RL/PK INR 1,984",
+        "pageNumber": 5,
+        "blockId": "p5-t4-seg4"
+      }
+    },
+    {
+      "index": 112,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-024 Whatman Grade GF/A Glass Microfiber Filter HSN 12345682 GST 12% 25/PK INR 1,991",
+        "pageNumber": 5,
+        "blockId": "p5-t5-seg1"
+      }
+    },
+    {
+      "index": 113,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-025 Whatman Grade GF/B Glass Microfiber Filter HSN 12345683 GST 18% 50/PK INR 1,998",
+        "pageNumber": 5,
+        "blockId": "p5-t5-seg2"
+      }
+    },
+    {
+      "index": 114,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-026 Whatman Grade GF/C Glass Microfiber Filter HSN 12345684 GST 5% 100/PK INR 2,005",
+        "pageNumber": 5,
+        "blockId": "p5-t5-seg3"
+      }
+    },
+    {
+      "index": 115,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-027 Whatman Grade GF/D Glass Microfiber Filter HSN 12345685 GST 12% 1RL/PK INR 2,012",
+        "pageNumber": 5,
+        "blockId": "p5-t5-seg4"
+      }
+    },
+    {
+      "index": 116,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-028 Whatman Grade GF/F Glass Microfiber Filter HSN 12345686 GST 18% PK25 INR 2,019",
+        "pageNumber": 5,
+        "blockId": "p5-t6-seg1"
+      }
+    },
+    {
+      "index": 117,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-029 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345687 GST 5% PK50 INR 2,026",
+        "pageNumber": 5,
+        "blockId": "p5-t6-seg2"
+      }
+    },
+    {
+      "index": 118,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-030 Whatman Grade GF/T Glass Microfiber Filter HSN 12345688 GST 12% 10PCS INR 2,033",
+        "pageNumber": 5,
+        "blockId": "p5-t6-seg3"
+      }
+    },
+    {
+      "index": 119,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1959-031 Whatman Grade GF/V Glass Microfiber Filter HSN 12345689 GST 18% 2RL/PK INR 2,040",
+        "pageNumber": 5,
+        "blockId": "p5-t6-seg4"
+      }
+    },
+    {
+      "index": 120,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-032 Whatman Grade GF/A Glass Microfiber Filter HSN 12345690 GST 5% 25/PK INR 2,047",
+        "pageNumber": 6,
+        "blockId": "p6-t1-seg1"
+      }
+    },
+    {
+      "index": 121,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-033 Whatman Grade GF/B Glass Microfiber Filter HSN 12345691 GST 12% 50/PK INR 2,054",
+        "pageNumber": 6,
+        "blockId": "p6-t1-seg2"
+      }
+    },
+    {
+      "index": 122,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-034 Whatman Grade GF/C Glass Microfiber Filter HSN 12345692 GST 18% 100/PK INR 2,061",
+        "pageNumber": 6,
+        "blockId": "p6-t1-seg3"
+      }
+    },
+    {
+      "index": 123,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-035 Whatman Grade GF/D Glass Microfiber Filter HSN 12345693 GST 5% 1RL/PK INR 2,068",
+        "pageNumber": 6,
+        "blockId": "p6-t1-seg4"
+      }
+    },
+    {
+      "index": 124,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-036 Whatman Grade GF/F Glass Microfiber Filter HSN 12345694 GST 12% PK25 INR 2,075",
+        "pageNumber": 6,
+        "blockId": "p6-t2-seg1"
+      }
+    },
+    {
+      "index": 125,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-037 Whatman Grade GF/GM Glass Microfiber Filter HSN 12345695 GST 18% PK50 INR 2,082",
+        "pageNumber": 6,
+        "blockId": "p6-t2-seg2"
+      }
+    },
+    {
+      "index": 126,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-038 Whatman Grade GF/T Glass Microfiber Filter HSN 12345696 GST 5% 10PCS INR 2,089",
+        "pageNumber": 6,
+        "blockId": "p6-t2-seg3"
+      }
+    },
+    {
+      "index": 127,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-039 Whatman Grade GF/V Glass Microfiber Filter HSN 12345697 GST 12% 2RL/PK INR 2,096",
+        "pageNumber": 6,
+        "blockId": "p6-t2-seg4"
+      }
+    },
+    {
+      "index": 128,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-040 Whatman Grade GF/A Glass Microfiber Filter HSN 12345698 GST 18% 25/PK INR 2,103",
+        "pageNumber": 6,
+        "blockId": "p6-t3-seg1"
+      }
+    },
+    {
+      "index": 129,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-041 Whatman Grade GF/B Glass Microfiber Filter HSN 12345699 GST 5% 50/PK INR 2,110",
+        "pageNumber": 6,
+        "blockId": "p6-t3-seg2"
+      }
+    },
+    {
+      "index": 130,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-042 Whatman Grade GF/C Glass Microfiber Filter HSN 12345700 GST 12% 100/PK INR 2,117",
+        "pageNumber": 6,
+        "blockId": "p6-t3-seg3"
+      }
+    },
+    {
+      "index": 131,
+      "confidence": 0.8,
+      "fields_present": [
+        "price_value",
+        "code",
+        "name",
+        "pack",
+        "currency"
+      ],
+      "source": {
+        "text": "1960-043 Whatman Grade GF/D Glass Microfiber Filter HSN 12345701 GST 18% 1RL/PK INR 2,124",
+        "pageNumber": 6,
+        "blockId": "p6-t3-seg4"
+      }
+    }
+  ],
+  "low_confidence": [],
+  "leftovers": [
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024"
+  ],
+  "duplicates_removed": 0,
+  "rows_unmatched_sample": [
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024",
+    "Cat No / Product Description / HSN / GST / INR Price List 2024"
+  ]
+}

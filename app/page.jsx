@@ -105,7 +105,7 @@ export default function HomePage() {
             checked={usePriceFallback}
             onChange={(e) => setUsePriceFallback(e.target.checked)}
           />
-          <span>Use price-anchored fallback</span>
+          <span>Use price-anchored fallback (stronger splitting)</span>
         </label>
         <button
           type="submit"

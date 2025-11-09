@@ -1,0 +1,40 @@
+{
+  "id": "hsn_gst_tail_price",
+  "description": "HSN/GST appear before price",
+  "columns": [
+    {
+      "role": "code",
+      "required": true,
+      "header_keywords": ["Code", "Cat", "SKU"],
+      "value_regex": "([0-9]{6,}|[A-Z]{2,}\\d{3,}|[0-9]{4,}-[0-9]{2,})"
+    },
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Description", "Product", "Item"],
+      "min_length": 4
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["HSN"],
+      "value_regex": "\\b[0-9]{8}\\b"
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["GST"],
+      "value_regex": "\\b[0-9]{1,2}%\\b"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "List"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["code", "name", "price"],
+    "min_confidence": 0.4
+  }
+}

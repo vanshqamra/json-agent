@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -37,11 +38,25 @@ async function main() {
     options: { forcePriceAnchored: true },
   });
 
-  console.log(JSON.stringify({
-    matchedRows: result.qcReport?.matched_rows ?? 0,
-    warnings: result.warnings,
-    diagnostics: result.diagnostics,
-  }, null, 2));
+  const qcDir = path.join(artifactsDir, 'price_fallback');
+  await fs.mkdir(qcDir, { recursive: true });
+  const qcPath = path.join(qcDir, 'qc_report.json');
+  if (result.qcReport) {
+    await fs.writeFile(qcPath, JSON.stringify(result.qcReport, null, 2));
+  }
+
+  console.log(
+    JSON.stringify(
+      {
+        matchedRows: result.qcReport?.matched_rows ?? 0,
+        warnings: result.warnings,
+        diagnostics: result.diagnostics,
+        qcReportPath: result.qcReport ? qcPath : null,
+      },
+      null,
+      2,
+    ),
+  );
 }
 
 main().catch(error => {

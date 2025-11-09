@@ -1,0 +1,34 @@
+{
+  "id": "model_hyphen_series",
+  "description": "Industrial model numbers with hyphenated series",
+  "columns": [
+    {
+      "role": "code",
+      "required": true,
+      "header_keywords": ["Model", "Code", "Cat"],
+      "value_regex": "[A-Z]{2,4}-\d{2,4}(?:[A-Z]-?\d{1,4})?"
+    },
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Description", "Product", "Item"],
+      "min_length": 4
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Pack", "Qty"],
+      "value_regex": "(\\d+(?:/\\d+)?\\s?(PCS|PK|BAG|SET))"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["code", "name", "price"],
+    "min_confidence": 0.45
+  }
+}
