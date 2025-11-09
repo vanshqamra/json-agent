@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { randomUUID as nodeRandomUUID } from 'node:crypto';
 
 import { NextResponse } from 'next/server';
 
@@ -260,9 +261,17 @@ export async function POST(req) {
     }
 
     const requestUrl = new URL(req.url);
-    const docId = requestUrl.searchParams.get('docId');
+    let docId = requestUrl.searchParams.get('docId');
     if (!docId) {
-      throw new ParseError('Missing required docId query parameter.', 400);
+      if (typeof nodeRandomUUID === 'function') {
+        docId = nodeRandomUUID();
+      } else if (typeof globalThis.crypto?.randomUUID === 'function') {
+        docId = globalThis.crypto.randomUUID();
+      } else {
+        const randomPart = Math.random().toString(36).slice(2, 10);
+        const timestampPart = Date.now().toString(36);
+        docId = `doc-${timestampPart}-${randomPart}`;
+      }
     }
 
     const dataDir = getDataDir(docId);
