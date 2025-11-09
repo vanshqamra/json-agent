@@ -8,6 +8,7 @@ import { isOpenAIConfigured } from '@/lib/openaiClient.js';
 import { ensureDir, getDataDir, writeJson } from '@/lib/io.js';
 import { runCatalogPipeline } from '@/lib/pipeline/catalogPipeline.js';
 import { runLLMChunkerPipeline } from '@/lib/llmChunker/pipeline.js';
+import { runWindowedPipeline } from '@/lib/windowOrchestrator.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -24,7 +25,36 @@ class ParseError extends Error {
   }
 }
 
-async function loadPagesFromJson(req) {
+const TRUE_VALUES = new Set(['1', 'true', 'yes', 'on']);
+const FALSE_VALUES = new Set(['0', 'false', 'no', 'off']);
+
+function parseBooleanFlag(value, defaultValue = false) {
+  if (value == null) return defaultValue;
+  if (typeof value === 'boolean') return value;
+  const normalised = String(value).trim().toLowerCase();
+  if (TRUE_VALUES.has(normalised)) return true;
+  if (FALSE_VALUES.has(normalised)) return false;
+  return defaultValue;
+}
+
+function parseWindowSize(value, defaultValue = 10) {
+  if (value == null) return defaultValue;
+  const parsed = Number.parseInt(value, 10);
+  if (!Number.isFinite(parsed) || parsed < 1) return defaultValue;
+  return parsed;
+}
+
+function resolveBooleanPreference(queryValue, bodyValue, defaultValue) {
+  if (queryValue != null) {
+    return parseBooleanFlag(queryValue, defaultValue);
+  }
+  if (bodyValue != null) {
+    return parseBooleanFlag(bodyValue, defaultValue);
+  }
+  return defaultValue;
+}
+
+async function loadPagesFromJson(req, { defaultEnableOcr = false } = {}) {
   const body = await req.json();
   const pages = Array.isArray(body?.pages) ? body.pages.map(page => String(page || '')) : [];
   if (!pages.length) {
@@ -34,16 +64,31 @@ async function loadPagesFromJson(req) {
   if (!segmented.length) {
     throw new ParseError('Unable to segment provided pages.', 422);
   }
+  const options = {
+    enableOcr:
+      typeof body?.enableOcr === 'boolean'
+        ? body.enableOcr
+        : parseBooleanFlag(body?.enableOcr, defaultEnableOcr),
+    windowSize: body?.windowSize != null ? Number.parseInt(body.windowSize, 10) : undefined,
+    llmCritique:
+      typeof body?.llmCritique === 'boolean'
+        ? body.llmCritique
+        : body?.llmCritique != null
+        ? parseBooleanFlag(body.llmCritique, true)
+        : undefined,
+  };
+
   return {
     pages: segmented,
     source: {
       filename: body?.filename || 'inline.json',
       pages: segmented.length,
     },
+    options,
   };
 }
 
-async function loadPagesFromFormData(req) {
+async function loadPagesFromFormData(req, { defaultEnableOcr = false, envAllowsOcr = false } = {}) {
   const formData = await req.formData();
   const file = formData.get('file');
   if (!file || typeof file.arrayBuffer !== 'function') {
@@ -60,8 +105,10 @@ async function loadPagesFromFormData(req) {
   if (arrayBuffer.byteLength > MAX_UPLOAD_BYTES) {
     throw new ParseError('Uploaded PDF is larger than 25MB. Please split the file and retry.', 413);
   }
+  const enableOcrRequested = parseBooleanFlag(formData.get('enableOcr'), defaultEnableOcr);
+  const effectiveEnableOcr = envAllowsOcr && enableOcrRequested;
   try {
-    const { pages } = await extractPdfText(arrayBuffer);
+    const { pages } = await extractPdfText(arrayBuffer, { enableOcr: effectiveEnableOcr });
     if (!pages.length) {
       throw new ParseError('Unable to extract any pages from uploaded PDF.', 422);
     }
@@ -71,6 +118,13 @@ async function loadPagesFromFormData(req) {
         filename,
         pages: pages.length,
       },
+      options: {
+        enableOcr: enableOcrRequested,
+        windowSize: formData.get('windowSize') ? Number.parseInt(formData.get('windowSize'), 10) : undefined,
+        llmCritique: formData.has('llmCritique')
+          ? parseBooleanFlag(formData.get('llmCritique'), true)
+          : undefined,
+      },
     };
   } catch (err) {
     if (err instanceof ParseError) throw err;
@@ -78,13 +132,13 @@ async function loadPagesFromFormData(req) {
   }
 }
 
-async function loadPages(req) {
+async function loadPages(req, { defaultEnableOcr = false, envAllowsOcr = false } = {}) {
   const contentType = (req.headers.get('content-type') || '').toLowerCase();
   if (contentType.includes('application/json')) {
-    return loadPagesFromJson(req);
+    return loadPagesFromJson(req, { defaultEnableOcr });
   }
   if (contentType.includes('multipart/form-data')) {
-    return loadPagesFromFormData(req);
+    return loadPagesFromFormData(req, { defaultEnableOcr, envAllowsOcr });
   }
   throw new ParseError(
     'Provide a PDF via multipart/form-data (field: file) or JSON with a non-empty pages array.',
@@ -135,7 +189,17 @@ function applyPageWindow(pages, pageWindow) {
 
 export async function POST(req) {
   try {
-    const { pages, source } = await loadPages(req);
+    const requestUrl = new URL(req.url);
+    const envAllowsOcr = process.env.ENABLE_OCR === 'true';
+    const queryEnableOcrValue = requestUrl.searchParams.get('enableOcr');
+    const defaultEnableOcr = envAllowsOcr
+      ? parseBooleanFlag(queryEnableOcrValue, false)
+      : false;
+
+    const { pages, source, options: bodyOptions = {} } = await loadPages(req, {
+      defaultEnableOcr,
+      envAllowsOcr,
+    });
 
     const pageWindow = parsePageWindow(req, source.pages);
     const filteredPages = applyPageWindow(pages, pageWindow);
@@ -143,7 +207,6 @@ export async function POST(req) {
       throw new ParseError('Requested page range does not contain any pages.', 400);
     }
 
-    const requestUrl = new URL(req.url);
     let docId = requestUrl.searchParams.get('docId');
     if (!docId) {
       if (typeof nodeRandomUUID === 'function') {
@@ -171,11 +234,31 @@ export async function POST(req) {
       (requestUrl.searchParams.get('forcePriceAnchored') || '').toLowerCase(),
     );
 
+    const bodyWindowSize = bodyOptions?.windowSize;
+    const queryWindowSize = requestUrl.searchParams.get('windowSize');
+    const finalWindowSize = parseWindowSize(
+      bodyWindowSize != null && Number.isFinite(Number(bodyWindowSize))
+        ? bodyWindowSize
+        : queryWindowSize,
+      10,
+    );
+
+    const llmCritiqueRequested = resolveBooleanPreference(
+      requestUrl.searchParams.get('llmCritique'),
+      bodyOptions?.llmCritique,
+      true,
+    );
+
+    const requestedEnableOcr = bodyOptions?.enableOcr ?? defaultEnableOcr;
+    const effectiveEnableOcr = envAllowsOcr && parseBooleanFlag(requestedEnableOcr, defaultEnableOcr);
+
     const chunkerToggle = (requestUrl.searchParams.get('useLLMChunker') || '').toLowerCase();
     const envLLMChunker = (process.env.USE_LLM_CHUNKER || '').toLowerCase();
     const useLLMChunker =
       ['1', 'true', 'yes'].includes(chunkerToggle) ||
       (!['0', 'false', 'no'].includes(chunkerToggle) && ['1', 'true', 'yes'].includes(envLLMChunker));
+
+    const shouldWindow = filteredPages.length > finalWindowSize && finalWindowSize > 0;
 
     const pipelineRunner = useLLMChunker
       ? runLLMChunkerPipeline({
@@ -191,6 +274,21 @@ export async function POST(req) {
             forcePriceAnchored,
             useCache: !(['1', 'true'].includes((requestUrl.searchParams.get('nocache') || '').toLowerCase())),
           },
+        })
+      : shouldWindow
+      ? runWindowedPipeline({
+          docId,
+          pagesRaw: filteredPages,
+          windowSize: finalWindowSize,
+          forcePriceAnchored,
+          llmCritique: llmCritiqueRequested && useLLM,
+          dataDir: dryRun ? null : dataDir,
+          pipelineOptions: {
+            useLLM,
+            forcePriceAnchored,
+            persistArtifacts: false,
+          },
+          source,
         })
       : runCatalogPipeline({
           docId,
@@ -251,6 +349,8 @@ export async function POST(req) {
       dry_run: dryRun,
       page_window: pageWindow,
       price_anchored_forced: forcePriceAnchored,
+      llm_audit: pipelineResult.llmAudit || null,
+      ocr_enabled: effectiveEnableOcr,
     };
 
     if (!dryRun) {
