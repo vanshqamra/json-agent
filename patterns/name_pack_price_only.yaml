@@ -1,0 +1,28 @@
+{
+  "id": "name_pack_price_only",
+  "description": "Rows without explicit codes",
+  "columns": [
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Description", "Product", "Item"],
+      "min_length": 6
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["Pack", "Size"],
+      "value_regex": "(\\d+(?:\\.\\d+)?\\s?(ML|L|G|KG|MM|CM|M)(?:\\s*/\\s*(PK|PCS))?)"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "MRP", "Rate"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "min_confidence": 0.4
+  }
+}

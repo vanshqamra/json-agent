@@ -1,0 +1,28 @@
+{
+  "id": "code_discounted_price",
+  "description": "Discount layouts with code and net price",
+  "columns": [
+    {
+      "role": "code",
+      "required": true,
+      "header_keywords": ["Code", "Item", "SKU"],
+      "value_regex": "[A-Z0-9-]{5,}"
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["Notes", "Offer"],
+      "value_regex": "(MRP|List)"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Now", "Net", "Price"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["code", "price"],
+    "min_confidence": 0.35
+  }
+}

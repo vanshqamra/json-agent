@@ -1,0 +1,28 @@
+{
+  "id": "service_line_price",
+  "description": "Service listings with description and price",
+  "columns": [
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["Service", "Description", "Item"],
+      "min_length": 12
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["Price", "Rate", "Fee"],
+      "value_regex": "\\d"
+    },
+    {
+      "role": "notes",
+      "required": false,
+      "header_keywords": ["Notes", "Terms"],
+      "value_regex": "(per hour|per day|per unit|monthly|annual)"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "min_confidence": 0.35
+  }
+}
