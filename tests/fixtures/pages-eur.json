@@ -1,0 +1,15 @@
+[
+  {
+    "pageNumber": 2,
+    "textBlocks": [
+      { "id": "eu-h1", "text": "European Price List" },
+      { "id": "eu-h2", "text": "Name    Pack    Price (EUR)" },
+      { "id": "eu-r1", "text": "Standard Buffer Solution    500 mL    € 45,50" },
+      { "id": "eu-r2", "text": "Standard Buffer Solution High Accuracy    1 L    € 75,90" },
+      { "id": "eu-r3a", "text": "Stability Control Mix Deluxe" },
+      { "id": "eu-r3b", "text": "Pack of 4    € 125,00" }
+    ],
+    "segments": [],
+    "tables": []
+  }
+]

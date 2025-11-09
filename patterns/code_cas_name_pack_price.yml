@@ -1,0 +1,69 @@
+{
+  "id": "code_cas_name_pack_price",
+  "description": "Code + CAS + product name + pack + price listings",
+  "columns": [
+    {
+      "role": "code",
+      "required": false,
+      "header_keywords": ["code", "catalog", "cat", "item"],
+      "value_regex": "^[A-Za-z0-9\\-\\/]+$"
+    },
+    {
+      "role": "cas",
+      "required": false,
+      "header_keywords": ["cas", "registry"],
+      "value_regex": "\\d{2,}-\\d{2}-\\d"
+    },
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["description", "product", "name"],
+      "min_length": 3
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["pack", "size", "qty", "unit"],
+      "value_regex": "(\\d+\\s*(ml|l|g|kg|pack|pcs|set))"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["price", "mrp", "rate", "amount"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "optional_roles": ["code", "cas", "pack"],
+    "min_confidence": 0.45
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": {
+        "₹": "INR",
+        "rs": "INR",
+        "$": "USD",
+        "€": "EUR"
+      },
+      "codes": {
+        "inr": "INR",
+        "usd": "USD",
+        "eur": "EUR"
+      }
+    },
+    "units": {
+      "pack": [
+        {
+          "pattern": "(\\d+(?:\\.\\d+)?)\\s*(ml|l|g|kg)",
+          "format": "$1 $2"
+        },
+        {
+          "pattern": "(pack of \\d+)",
+          "format": "$1"
+        }
+      ]
+    }
+  }
+}

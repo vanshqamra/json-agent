@@ -166,6 +166,10 @@ export async function POST(req) {
     const llmEnvSetting = (process.env.INGEST_LLM_ENABLED || 'true').toLowerCase();
     const useLLM = llmEnvSetting !== 'false' && isOpenAIConfigured();
 
+    const forcePriceAnchored = ['1', 'true', 'yes'].includes(
+      (requestUrl.searchParams.get('forcePriceAnchored') || '').toLowerCase(),
+    );
+
     const pipelineResult = await runCatalogPipeline({
       docId,
       pages: filteredPages,
@@ -174,6 +178,7 @@ export async function POST(req) {
       options: {
         useLLM,
         persistArtifacts: !dryRun,
+        forcePriceAnchored,
       },
     }).catch(error => {
       console.error('Catalog pipeline crashed:', error);
@@ -221,6 +226,7 @@ export async function POST(req) {
       pages_preview: pipelineResult.pagesPreview || [],
       dry_run: dryRun,
       page_window: pageWindow,
+      price_anchored_forced: forcePriceAnchored,
     };
 
     if (!dryRun) {
