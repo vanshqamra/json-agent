@@ -1,0 +1,965 @@
+{
+  "docId": "4f960036-3101-4d34-b517-fe596ef46a3f",
+  "engine": "pattern_registry",
+  "matched_pattern": "sku_name_pack_price",
+  "matched_rows": 55,
+  "fields": [
+    "code",
+    "cas",
+    "name",
+    "pack",
+    "price_value",
+    "currency",
+    "notes"
+  ],
+  "rows": [
+    {
+      "index": 0,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-001    Qualigens GC Secondary Reference Standard 1    6 g    Rs 1245.00",
+        "pageNumber": 7,
+        "blockId": "p7-r1"
+      }
+    },
+    {
+      "index": 1,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-002    Qualigens GC Secondary Reference Standard 2    7 g    Rs 1290.00",
+        "pageNumber": 7,
+        "blockId": "p7-r2"
+      }
+    },
+    {
+      "index": 2,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-003    Qualigens GC Secondary Reference Standard 3    8 g    Rs 1335.00",
+        "pageNumber": 7,
+        "blockId": "p7-r3"
+      }
+    },
+    {
+      "index": 3,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-004    Qualigens GC Secondary Reference Standard 4    9 g    Rs 1380.00",
+        "pageNumber": 7,
+        "blockId": "p7-r4"
+      }
+    },
+    {
+      "index": 4,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-005    Qualigens GC Secondary Reference Standard 5    10 g    Rs 1425.00",
+        "pageNumber": 7,
+        "blockId": "p7-r5"
+      }
+    },
+    {
+      "index": 5,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-006    Qualigens GC Secondary Reference Standard 6    11 g    Rs 1470.00",
+        "pageNumber": 7,
+        "blockId": "p7-r6"
+      }
+    },
+    {
+      "index": 6,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-007    Qualigens GC Secondary Reference Standard 7    12 g    Rs 1515.00",
+        "pageNumber": 7,
+        "blockId": "p7-r7"
+      }
+    },
+    {
+      "index": 7,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-008    Qualigens GC Secondary Reference Standard 8    13 g    Rs 1560.00",
+        "pageNumber": 7,
+        "blockId": "p7-r8"
+      }
+    },
+    {
+      "index": 8,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-009    Qualigens GC Secondary Reference Standard 9    14 g    Rs 1605.00",
+        "pageNumber": 7,
+        "blockId": "p7-r9"
+      }
+    },
+    {
+      "index": 9,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-010    Qualigens GC Secondary Reference Standard 10    15 g    Rs 1650.00",
+        "pageNumber": 7,
+        "blockId": "p7-r10"
+      }
+    },
+    {
+      "index": 10,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-011    Qualigens GC Secondary Reference Standard 11    16 g    Rs 1695.00",
+        "pageNumber": 7,
+        "blockId": "p7-r11"
+      }
+    },
+    {
+      "index": 11,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-012    Qualigens GC Secondary Reference Standard 12    17 g    Rs 1740.00",
+        "pageNumber": 7,
+        "blockId": "p7-r12"
+      }
+    },
+    {
+      "index": 12,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-013    Qualigens GC Secondary Reference Standard 13    18 g    Rs 1785.00",
+        "pageNumber": 7,
+        "blockId": "p7-r13"
+      }
+    },
+    {
+      "index": 13,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-014    Qualigens GC Secondary Reference Standard 14    19 g    Rs 1830.00",
+        "pageNumber": 7,
+        "blockId": "p7-r14"
+      }
+    },
+    {
+      "index": 14,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-015    Qualigens GC Secondary Reference Standard 15    20 g    Rs 1875.00",
+        "pageNumber": 7,
+        "blockId": "p7-r15"
+      }
+    },
+    {
+      "index": 15,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-016    Qualigens GC Secondary Reference Standard 16    21 g    Rs 1920.00",
+        "pageNumber": 7,
+        "blockId": "p7-r16"
+      }
+    },
+    {
+      "index": 16,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-017    Qualigens GC Secondary Reference Standard 17    22 g    Rs 1965.00",
+        "pageNumber": 7,
+        "blockId": "p7-r17"
+      }
+    },
+    {
+      "index": 17,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-018    Qualigens GC Secondary Reference Standard 18    23 g    Rs 2010.00",
+        "pageNumber": 7,
+        "blockId": "p7-r18"
+      }
+    },
+    {
+      "index": 18,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-019    Qualigens GC Secondary Reference Standard 19    24 g    Rs 2055.00",
+        "pageNumber": 7,
+        "blockId": "p7-r19"
+      }
+    },
+    {
+      "index": 19,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-020    Qualigens GC Secondary Reference Standard 20    25 g    Rs 2100.00",
+        "pageNumber": 7,
+        "blockId": "p7-r20"
+      }
+    },
+    {
+      "index": 20,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-021    Qualigens GC Secondary Reference Standard 21    26 g    Rs 2145.00",
+        "pageNumber": 7,
+        "blockId": "p7-r21"
+      }
+    },
+    {
+      "index": 21,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-022    Qualigens GC Secondary Reference Standard 22    27 g    Rs 2190.00",
+        "pageNumber": 7,
+        "blockId": "p7-r22"
+      }
+    },
+    {
+      "index": 22,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-023    Qualigens GC Secondary Reference Standard 23    28 g    Rs 2235.00",
+        "pageNumber": 7,
+        "blockId": "p7-r23"
+      }
+    },
+    {
+      "index": 23,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-024    Qualigens GC Secondary Reference Standard 24    29 g    Rs 2280.00",
+        "pageNumber": 7,
+        "blockId": "p7-r24"
+      }
+    },
+    {
+      "index": 24,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-025    Qualigens GC Secondary Reference Standard 25    30 g    Rs 2325.00",
+        "pageNumber": 7,
+        "blockId": "p7-r25"
+      }
+    },
+    {
+      "index": 25,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-026    Qualigens GC Secondary Reference Standard 26    31 g    Rs 2370.00",
+        "pageNumber": 7,
+        "blockId": "p7-r26"
+      }
+    },
+    {
+      "index": 26,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-027    Qualigens GC Secondary Reference Standard 27    32 g    Rs 2415.00",
+        "pageNumber": 7,
+        "blockId": "p7-r27"
+      }
+    },
+    {
+      "index": 27,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-028    Qualigens GC Secondary Reference Standard 28    33 g    Rs 2460.00",
+        "pageNumber": 7,
+        "blockId": "p7-r28"
+      }
+    },
+    {
+      "index": 28,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-029    Qualigens GC Secondary Reference Standard 29    34 g    Rs 2505.00",
+        "pageNumber": 7,
+        "blockId": "p7-r29"
+      }
+    },
+    {
+      "index": 29,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-030    Qualigens GC Secondary Reference Standard 30    35 g    Rs 2550.00",
+        "pageNumber": 7,
+        "blockId": "p7-r30"
+      }
+    },
+    {
+      "index": 30,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-031    Qualigens GC Secondary Reference Standard 31    36 g    Rs 2595.00",
+        "pageNumber": 7,
+        "blockId": "p7-r31"
+      }
+    },
+    {
+      "index": 31,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-032    Qualigens GC Secondary Reference Standard 32    37 g    Rs 2640.00",
+        "pageNumber": 7,
+        "blockId": "p7-r32"
+      }
+    },
+    {
+      "index": 32,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-033    Qualigens GC Secondary Reference Standard 33    38 g    Rs 2685.00",
+        "pageNumber": 7,
+        "blockId": "p7-r33"
+      }
+    },
+    {
+      "index": 33,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-034    Qualigens GC Secondary Reference Standard 34    39 g    Rs 2730.00",
+        "pageNumber": 7,
+        "blockId": "p7-r34"
+      }
+    },
+    {
+      "index": 34,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-035    Qualigens GC Secondary Reference Standard 35    40 g    Rs 2775.00",
+        "pageNumber": 7,
+        "blockId": "p7-r35"
+      }
+    },
+    {
+      "index": 35,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-036    Qualigens GC Secondary Reference Standard 36    41 g    Rs 2820.00",
+        "pageNumber": 7,
+        "blockId": "p7-r36"
+      }
+    },
+    {
+      "index": 36,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-037    Qualigens GC Secondary Reference Standard 37    42 g    Rs 2865.00",
+        "pageNumber": 7,
+        "blockId": "p7-r37"
+      }
+    },
+    {
+      "index": 37,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-038    Qualigens GC Secondary Reference Standard 38    43 g    Rs 2910.00",
+        "pageNumber": 7,
+        "blockId": "p7-r38"
+      }
+    },
+    {
+      "index": 38,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-039    Qualigens GC Secondary Reference Standard 39    44 g    Rs 2955.00",
+        "pageNumber": 7,
+        "blockId": "p7-r39"
+      }
+    },
+    {
+      "index": 39,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-040    Qualigens GC Secondary Reference Standard 40    45 g    Rs 3000.00",
+        "pageNumber": 7,
+        "blockId": "p7-r40"
+      }
+    },
+    {
+      "index": 40,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-041    Qualigens GC Secondary Reference Standard 41    46 g    Rs 3045.00",
+        "pageNumber": 7,
+        "blockId": "p7-r41"
+      }
+    },
+    {
+      "index": 41,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-042    Qualigens GC Secondary Reference Standard 42    47 g    Rs 3090.00",
+        "pageNumber": 7,
+        "blockId": "p7-r42"
+      }
+    },
+    {
+      "index": 42,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-043    Qualigens GC Secondary Reference Standard 43    48 g    Rs 3135.00",
+        "pageNumber": 7,
+        "blockId": "p7-r43"
+      }
+    },
+    {
+      "index": 43,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-044    Qualigens GC Secondary Reference Standard 44    49 g    Rs 3180.00",
+        "pageNumber": 7,
+        "blockId": "p7-r44"
+      }
+    },
+    {
+      "index": 44,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-045    Qualigens GC Secondary Reference Standard 45    50 g    Rs 3225.00",
+        "pageNumber": 7,
+        "blockId": "p7-r45"
+      }
+    },
+    {
+      "index": 45,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-046    Qualigens GC Secondary Reference Standard 46    51 g    Rs 3270.00",
+        "pageNumber": 7,
+        "blockId": "p7-r46"
+      }
+    },
+    {
+      "index": 46,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-047    Qualigens GC Secondary Reference Standard 47    52 g    Rs 3315.00",
+        "pageNumber": 7,
+        "blockId": "p7-r47"
+      }
+    },
+    {
+      "index": 47,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-048    Qualigens GC Secondary Reference Standard 48    53 g    Rs 3360.00",
+        "pageNumber": 7,
+        "blockId": "p7-r48"
+      }
+    },
+    {
+      "index": 48,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-049    Qualigens GC Secondary Reference Standard 49    54 g    Rs 3405.00",
+        "pageNumber": 7,
+        "blockId": "p7-r49"
+      }
+    },
+    {
+      "index": 49,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-050    Qualigens GC Secondary Reference Standard 50    55 g    Rs 3450.00",
+        "pageNumber": 7,
+        "blockId": "p7-r50"
+      }
+    },
+    {
+      "index": 50,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-051    Qualigens GC Secondary Reference Standard 51    56 g    Rs 3495.00",
+        "pageNumber": 7,
+        "blockId": "p7-r51"
+      }
+    },
+    {
+      "index": 51,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-052    Qualigens GC Secondary Reference Standard 52    57 g    Rs 3540.00",
+        "pageNumber": 7,
+        "blockId": "p7-r52"
+      }
+    },
+    {
+      "index": 52,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-053    Qualigens GC Secondary Reference Standard 53    58 g    Rs 3585.00",
+        "pageNumber": 7,
+        "blockId": "p7-r53"
+      }
+    },
+    {
+      "index": 53,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-054    Qualigens GC Secondary Reference Standard 54    59 g    Rs 3630.00",
+        "pageNumber": 7,
+        "blockId": "p7-r54"
+      }
+    },
+    {
+      "index": 54,
+      "confidence": 0.99,
+      "fields_present": [
+        "code",
+        "name",
+        "pack",
+        "price_value",
+        "currency"
+      ],
+      "bitmask": 61,
+      "source": {
+        "text": "QS-055    Qualigens GC Secondary Reference Standard 55    60 g    Rs 3675.00",
+        "pageNumber": 7,
+        "blockId": "p7-r55"
+      }
+    }
+  ],
+  "leftovers": [],
+  "attempts": [
+    {
+      "pattern_id": "code_cas_name_pack_price",
+      "matched_rows": 0,
+      "reason": "no_rows"
+    },
+    {
+      "pattern_id": "sku_name_pack_price",
+      "matched_rows": 55,
+      "reason": "matched"
+    }
+  ]
+}

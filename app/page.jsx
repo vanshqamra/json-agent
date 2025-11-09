@@ -7,6 +7,7 @@ export default function HomePage() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [usePriceFallback, setUsePriceFallback] = useState(false);
 
   const pageList = useMemo(
     () => result?.pages_preview ?? result?.pages ?? result?.analyzed_pages ?? [],
@@ -43,7 +44,11 @@ export default function HomePage() {
       const fd = new FormData();
       fd.append("file", file);
 
-      const res = await fetch("/api/ingest/parse", {
+      const endpoint = new URL("/api/ingest/parse", window.location.origin);
+      if (usePriceFallback) {
+        endpoint.searchParams.set("forcePriceAnchored", "1");
+      }
+      const res = await fetch(endpoint.toString(), {
         method: "POST",
         body: fd,
       });
@@ -94,6 +99,14 @@ export default function HomePage() {
           accept="application/pdf"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
         />
+        <label style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          <input
+            type="checkbox"
+            checked={usePriceFallback}
+            onChange={(e) => setUsePriceFallback(e.target.checked)}
+          />
+          <span>Use price-anchored fallback</span>
+        </label>
         <button
           type="submit"
           disabled={loading}
@@ -154,6 +167,9 @@ export default function HomePage() {
                   : result.llm?.enabled === false
                   ? "disabled"
                   : "not configured"}
+              </div>
+              <div>
+                <strong>Price fallback forced:</strong> {result.price_anchored_forced ? "yes" : "no"}
               </div>
             </div>
           </section>

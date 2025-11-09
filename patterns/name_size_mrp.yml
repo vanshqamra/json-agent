@@ -1,0 +1,45 @@
+{
+  "id": "name_size_mrp",
+  "description": "Name + size + MRP table",
+  "columns": [
+    {
+      "role": "name",
+      "required": true,
+      "header_keywords": ["name", "description", "product"],
+      "min_length": 3
+    },
+    {
+      "role": "pack",
+      "required": false,
+      "header_keywords": ["size", "pack", "unit"],
+      "value_regex": "(\\d+\\s*(ml|l|g|kg|pack|pcs|set))"
+    },
+    {
+      "role": "price",
+      "required": true,
+      "header_keywords": ["mrp", "price", "rate"],
+      "value_regex": "\\d"
+    }
+  ],
+  "validation": {
+    "required_roles": ["name", "price"],
+    "optional_roles": ["pack"],
+    "min_confidence": 0.4
+  },
+  "normalization": {
+    "currency": {
+      "default": "INR",
+      "symbols": {
+        "₹": "INR",
+        "rs": "INR",
+        "$": "USD",
+        "€": "EUR"
+      },
+      "codes": {
+        "inr": "INR",
+        "usd": "USD",
+        "eur": "EUR"
+      }
+    }
+  }
+}
