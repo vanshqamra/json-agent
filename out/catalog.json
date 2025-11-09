@@ -1,0 +1,1129 @@
+{
+  "groups": [
+    {
+      "category": "Reference Standards",
+      "title": "GC Secondary Reference Standard",
+      "description": "Qualigens / Thermo Fisher GC secondary reference standards. HSN may vary. For latest prices see Thermo Fisher India Chemicals site.",
+      "specs_headers": [
+        "product_code",
+        "cas",
+        "name",
+        "pack_size",
+        "price_inr"
+      ],
+      "variants": [
+        {
+          "product_code": "Q5311RS100",
+          "cas": "107-06-2",
+          "name": "1,2-Dichloroethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5312RS100",
+          "cas": "95-50-1",
+          "name": "1,2-Dichlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5313RS100",
+          "cas": "541-73-1",
+          "name": "1,3-Dichlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5314RS100",
+          "cas": "106-46-7",
+          "name": "1,4-Dichlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5315RS100",
+          "cas": "78-87-5",
+          "name": "1,2-Dichloropropane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5316RS100",
+          "cas": "142-28-9",
+          "name": "1,3-Dichloropropane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5317RS100",
+          "cas": "79-00-5",
+          "name": "1,1,2-Trichloroethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5318RS100",
+          "cas": "71-55-6",
+          "name": "1,1,1-Trichloroethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5319RS100",
+          "cas": "630-20-6",
+          "name": "1,1,1,2-Tetrachloroethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5320RS100",
+          "cas": "79-34-5",
+          "name": "1,1,2,2-Tetrachloroethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5321RS100",
+          "cas": "56-23-5",
+          "name": "Carbon Tetrachloride Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 7999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5322RS100",
+          "cas": "67-66-3",
+          "name": "Chloroform Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 7599,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5323RS100",
+          "cas": "75-09-2",
+          "name": "Dichloromethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 7399,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5324RS100",
+          "cas": "79-01-6",
+          "name": "Trichloroethylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9699,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5325RS100",
+          "cas": "127-18-4",
+          "name": "Tetrachloroethylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9699,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5326RS100",
+          "cas": "106-93-4",
+          "name": "1,2-Dibromoethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 11499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5327RS100",
+          "cas": "75-27-4",
+          "name": "Bromodichloromethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5328RS100",
+          "cas": "75-25-2",
+          "name": "Bromoform Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 11999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5329RS100",
+          "cas": "108-90-7",
+          "name": "Chlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5330RS100",
+          "cas": "95-49-8",
+          "name": "o-Chlorotoluene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5331RS100",
+          "cas": "108-41-8",
+          "name": "m-Chlorotoluene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5332RS100",
+          "cas": "106-43-4",
+          "name": "p-Chlorotoluene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5333RS100",
+          "cas": "120-82-1",
+          "name": "1,2,4-Trichlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5334RS100",
+          "cas": "108-70-3",
+          "name": "1,3,5-Trichlorobenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5335RS100",
+          "cas": "124-48-1",
+          "name": "Chlorodibromomethane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 10999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5336RS100",
+          "cas": "75-35-4",
+          "name": "1,1-Dichloroethylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5337RS100",
+          "cas": "156-59-2",
+          "name": "cis-1,2-Dichloroethylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5338RS100",
+          "cas": "156-60-5",
+          "name": "trans-1,2-Dichloroethylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 8999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5339RS100",
+          "cas": "75-01-4",
+          "name": "Vinyl Chloride Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5340RS100",
+          "cas": "10061-01-5",
+          "name": "cis-1,3-Dichloropropene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5341RS100",
+          "cas": "10061-02-6",
+          "name": "trans-1,3-Dichloropropene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 9499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5342RS100",
+          "cas": "71-43-2",
+          "name": "Benzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5343RS100",
+          "cas": "108-88-3",
+          "name": "Toluene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5344RS100",
+          "cas": "100-41-4",
+          "name": "Ethylbenzene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5345RS100",
+          "cas": "108-38-3",
+          "name": "m-Xylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5346RS100",
+          "cas": "95-47-6",
+          "name": "o-Xylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5347RS100",
+          "cas": "106-42-3",
+          "name": "p-Xylene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5348RS100",
+          "cas": "100-42-5",
+          "name": "Styrene Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 7499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5349RS100",
+          "cas": "67-63-0",
+          "name": "Isopropanol Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5350RS100",
+          "cas": "78-93-3",
+          "name": "2-Butanone (MEK) Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5351RS100",
+          "cas": "67-64-1",
+          "name": "Acetone Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 5999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5352RS100",
+          "cas": "67-56-1",
+          "name": "Methanol Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 5999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5353RS100",
+          "cas": "75-05-8",
+          "name": "Acetonitrile Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6499,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5354RS100",
+          "cas": "1634-04-4",
+          "name": "Methyl tert-butyl ether Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 7999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5355RS100",
+          "cas": "75-85-4",
+          "name": "tert-Amyl alcohol (2-Methyl-2-butanol) Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6999,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5356RS100",
+          "cas": "110-82-7",
+          "name": "Cyclohexane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6299,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5357RS100",
+          "cas": "110-54-3",
+          "name": "n-Hexane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6299,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5358RS100",
+          "cas": "142-82-5",
+          "name": "n-Heptane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6299,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5359RS100",
+          "cas": "111-65-9",
+          "name": "n-Octane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6299,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        },
+        {
+          "product_code": "Q5360RS100",
+          "cas": "111-84-2",
+          "name": "n-Nonane Reference Standard",
+          "pack_size": "100 ml",
+          "price_inr": 6299,
+          "pack": {
+            "multiplier": 1,
+            "unit": "ml",
+            "qty": 100,
+            "kind": "volume_ml",
+            "base": 100,
+            "base_total": 100
+          },
+          "_confidence": 0.4,
+          "_provenance": {
+            "groupTitle": "GC Secondary Reference Standard",
+            "pageStart": 1,
+            "pageEnd": 1
+          }
+        }
+      ],
+      "pageStart": 1,
+      "pageEnd": 1,
+      "_warnings": [
+        "llm_hint: llm_disabled"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "page": 1,
+      "span": "p1-t1",
+      "type": "intro",
+      "confidence": 0.4
+    },
+    {
+      "page": 1,
+      "span": "p1-tbl1",
+      "type": "product_table",
+      "confidence": 0.8
+    },
+    {
+      "page": 1,
+      "span": "p1-t2",
+      "type": "intro",
+      "confidence": 0.4
+    },
+    {
+      "page": 1,
+      "span": "p1-tbl2",
+      "type": "product_table",
+      "confidence": 0.8
+    },
+    {
+      "page": 1,
+      "span": "p1-t3",
+      "type": "intro",
+      "confidence": 0.4
+    },
+    {
+      "page": 1,
+      "span": "p1-tbl3",
+      "type": "product_table",
+      "confidence": 0.8
+    },
+    {
+      "page": 1,
+      "span": "p1-t4",
+      "type": "intro",
+      "confidence": 0.4
+    },
+    {
+      "page": 1,
+      "span": "p1-tbl4",
+      "type": "product_table",
+      "confidence": 0.8
+    },
+    {
+      "page": 1,
+      "span": "p1-t5",
+      "type": "intro",
+      "confidence": 0.4
+    }
+  ]
+}

@@ -2,6 +2,8 @@ import assert from 'assert';
 import { analysePages } from '../scripts/detect.js';
 import { normalizeGroups, __test__ as normalizeTest } from '../scripts/normalize.js';
 import { __test__ as extractTest } from '../scripts/extract.js';
+import { segmentTextPages } from '../lib/pdfSegmenter.js';
+import { applyQualigensGcSecondaryParser } from '../lib/custom/qualigensGcSecondary.js';
 
 const tests = [];
 
@@ -88,6 +90,31 @@ test('intro page detection marks marketing content', () => {
   const analysis = analysePages(pages);
   assert.ok(analysis.introPages.includes(1));
   assert.strictEqual(analysis.pageSummaries[0].intro, true);
+});
+
+test('Qualigens GC parser extracts multiline reference standards', () => {
+  const sample = [
+    'GC Secondary Reference Standard',
+    'Product Code    CAS No.    Product Name                               Pack Size   Price',
+    'Q5311RS100      107-06-2   1,2-Dichloroethane Reference Standard      100 ml      8999',
+    'Q5312RS100      95-50-1    1,2-Dichlorobenzene Reference Standard     100 ml      9999',
+    'Q5313RS100      541-73-1   1,3-Dichlorobenzene Reference Standard     100 ml      9999',
+    'Q5314RS100      106-46-7   1,4-Dichlorobenzene Reference Standard     100 ml      9999',
+    'Q5315RS100      75-85-4    tert-Amyl alcohol (2-Methyl-2-butanol) Re  100 ml      6999',
+    '                       ference Standard',
+    'Notes: Prices subject to change.',
+  ].join('\n');
+
+  const pages = segmentTextPages([sample]);
+  const parsed = applyQualigensGcSecondaryParser({ pages, groups: [] });
+  assert.ok(parsed?.groups?.length, 'parser should emit a group');
+  const { variants } = parsed.groups[0];
+  assert.strictEqual(variants.length, 5);
+  assert.strictEqual(variants[0].product_code, 'Q5311RS100');
+  assert.strictEqual(variants[0].price_inr, 8999);
+  const collapsed = variants[4].name.replace(/\s+/g, '');
+  assert.ok(collapsed.includes('ReferenceStandard'));
+  assert.strictEqual(variants[4].pack_size, '100 ml');
 });
 
 let passed = 0;

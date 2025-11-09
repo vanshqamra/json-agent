@@ -1,0 +1,84 @@
+[
+  {
+    "page": 1,
+    "segments": [
+      {
+        "id": "p1-t1",
+        "kind": "intro",
+        "confidence": 0.4
+      },
+      {
+        "id": "p1-tbl1",
+        "kind": "product_table",
+        "confidence": 0.8,
+        "headers_canonical": [
+          "product_code",
+          "cas_no",
+          "product_name",
+          "pack_size",
+          "price_inr"
+        ],
+        "actions": []
+      },
+      {
+        "id": "p1-t2",
+        "kind": "intro",
+        "confidence": 0.4
+      },
+      {
+        "id": "p1-tbl2",
+        "kind": "product_table",
+        "confidence": 0.8,
+        "headers_canonical": [
+          "product_code",
+          "cas_no",
+          "product_name",
+          "pack_size",
+          "price_inr"
+        ],
+        "actions": []
+      },
+      {
+        "id": "p1-t3",
+        "kind": "intro",
+        "confidence": 0.4
+      },
+      {
+        "id": "p1-tbl3",
+        "kind": "product_table",
+        "confidence": 0.8,
+        "headers_canonical": [
+          "product_code",
+          "cas_no",
+          "product_name",
+          "pack_size",
+          "price_inr"
+        ],
+        "actions": []
+      },
+      {
+        "id": "p1-t4",
+        "kind": "intro",
+        "confidence": 0.4
+      },
+      {
+        "id": "p1-tbl4",
+        "kind": "product_table",
+        "confidence": 0.8,
+        "headers_canonical": [
+          "q5356rs100",
+          "110_82_7",
+          "cyclohexane_reference_standard",
+          "100_ml",
+          "6299"
+        ],
+        "actions": []
+      },
+      {
+        "id": "p1-t5",
+        "kind": "intro",
+        "confidence": 0.4
+      }
+    ]
+  }
+]
