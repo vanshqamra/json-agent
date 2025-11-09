@@ -3,7 +3,7 @@ import { randomUUID as nodeRandomUUID } from 'node:crypto';
 
 import { NextResponse } from 'next/server';
 
-import { extractPagesFromArrayBuffer, segmentTextPages } from '@/lib/pdfSegmenter.js';
+import { extractPdfText, segmentTextPages } from '@/lib/pdfSegmenter.js';
 import { isOpenAIConfigured } from '@/lib/openaiClient.js';
 import { ensureDir, getDataDir, writeJson } from '@/lib/io.js';
 import { runCatalogPipeline } from '@/lib/pipeline/catalogPipeline.js';
@@ -61,7 +61,7 @@ async function loadPagesFromFormData(req) {
     throw new ParseError('Uploaded PDF is larger than 25MB. Please split the file and retry.', 413);
   }
   try {
-    const { pages } = await extractPagesFromArrayBuffer(arrayBuffer);
+    const { pages } = await extractPdfText(arrayBuffer);
     if (!pages.length) {
       throw new ParseError('Unable to extract any pages from uploaded PDF.', 422);
     }
